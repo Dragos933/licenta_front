@@ -1,4 +1,89 @@
-h1 {
-  margin: 0;
-  color: red;
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+
+  .login {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fff;
+    border: 2px solid #067d68;
+    border-radius: 30px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box;
+    -webkit-box-shadow: 0px 0px 25px 0px rgba(184, 177, 184, 1);
+    -moz-box-shadow: 0px 0px 33px 0px rgba(184, 177, 184, 1);
+    box-shadow: 0px 0px 33px 0px rgba(184, 177, 184, 1);
+
+    .login-title {
+      margin-top: 50px;
+      color: #50d5b7;
+      animation: change-color 6s infinite ease-out;
+    }
+
+    @keyframes change-color {
+      0% {
+        color: #50d5b7;
+      }
+
+      50% {
+        color: #067d68;
+      }
+
+      100% {
+        color: #50d5b7;
+      }
+    }
+
+    .login-form {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+      padding: 100px 80px;
+
+      .login-input {
+        border: none;
+        border-bottom: 1px solid #555;
+        padding: 5px 10px;
+        outline: none;
+        margin-bottom: 30px;
+        width: 200px;
+        color: #555;
+        font-weight: bold;
+      }
+
+      .login-label {
+        align-self: flex-start;
+        color: #555;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+    }
+
+    .login-btn {
+      color: #fff;
+      font-size: 18px;
+      border: none;
+      outline: none;
+      padding: 10px 40px;
+      margin-bottom: 50px;
+      background-color: #f5bc5e;
+      border-radius: 20px;
+    }
+
+    .login-btn:hover {
+      padding: 9px 40px;
+      transition: 0.2s;
+      background-color: #fff;
+      color: #50d5b7;
+      font-weight: bold;
+      border: 1px solid #f5bc5e;
+    }
+  }
 }
