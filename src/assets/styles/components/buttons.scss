@@ -1,3 +1,7 @@
 .auth-button {
   font-family: 'Varela Round', sans-serif;
 }
+
+button[disabled] {
+  pointer-events: none;
+}

@@ -17,6 +17,13 @@ export default class Login extends React.Component {
     });
   };
 
+  isDisabled = ({ email, password }) => {
+    if (email && password) {
+      return false;
+    }
+    return true;
+  };
+
   render() {
     return (
       <div className='login-container'>
@@ -36,7 +43,11 @@ export default class Login extends React.Component {
             onClick={(e) => this.onSubmit(e)}
             buttonTxt='Login'
             className='login-btn basic-btn'
+            disabled={this.isDisabled(this.props)}
           />
+          <a className='forgot-pass-link' href='/forgot-password'>
+            Forgot password?
+          </a>
         </div>
       </div>
     );

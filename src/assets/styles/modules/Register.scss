@@ -1,10 +1,10 @@
-.login-container {
+.register-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 200px;
+  margin-top: 100px;
 
-  .login {
+  .register {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -17,42 +17,42 @@
     box-sizing: border-box;
     -webkit-box-shadow: 0px 0px 25px 0px rgba(184, 177, 184, 1);
     -moz-box-shadow: 0px 0px 33px 0px rgba(184, 177, 184, 1);
-    box-shadow: 0px 0px 33px 0px rgba(219, 219, 219, 1);
+    box-shadow: 0px 0px 33px 0px  rgba(219,219,219,1);
     animation: change-shadow 10s infinite ease;
 
     @keyframes change-shadow {
       0% {
         -webkit-box-shadow: 0px 0px 25px 0px rgba(184, 177, 184, 1);
         -moz-box-shadow: 0px 0px 33px 0px rgba(184, 177, 184, 1);
-        box-shadow: 0px 0px 40px 0px rgba(219, 219, 219, 1);
+        box-shadow: 0px 0px 40px 0px  rgba(219,219,219,1);
       }
 
       25% {
-        -webkit-box-shadow: 0px 0px 25px 0px rgba(255, 238, 212, 1);
-        -moz-box-shadow: 0px 0px 33px 0px rgba(255, 238, 212, 1);
-        box-shadow: 0px 0px 40px 0px rgba(255, 238, 212, 1);
+        -webkit-box-shadow: 0px 0px 25px 0px rgba(255,238,212,1);
+        -moz-box-shadow: 0px 0px 33px 0px rgba(255,238,212,1);
+        box-shadow: 0px 0px 40px 0px  rgba(255,238,212,1);
       }
 
       50% {
-        -webkit-box-shadow: 0px 0px 33px 0px rgba(212, 255, 234, 1);
-        -moz-box-shadow: 0px 0px 33px 0px rgba(212, 255, 234, 1);
-        box-shadow: 0px 0px 40px 0px rgba(212, 255, 234, 1);
+        -webkit-box-shadow: 0px 0px 33px 0px rgba(212,255,234,1);
+        -moz-box-shadow: 0px 0px 33px 0px rgba(212,255,234,1);
+        box-shadow: 0px 0px 40px 0px rgba(212,255,234,1);
       }
 
       75% {
-        -webkit-box-shadow: 0px 0px 25px 0px rgba(255, 238, 212, 1);
-        -moz-box-shadow: 0px 0px 33px 0px rgba(255, 238, 212, 1);
-        box-shadow: 0px 0px 40px 0px rgba(255, 238, 212, 1);
+        -webkit-box-shadow: 0px 0px 25px 0px rgba(255,238,212,1);
+        -moz-box-shadow: 0px 0px 33px 0px rgba(255,238,212,1);
+        box-shadow: 0px 0px 40px 0px  rgba(255,238,212,1);
       }
 
       100% {
         -webkit-box-shadow: 0px 0px 25px 0px rgba(184, 177, 184, 1);
         -moz-box-shadow: 0px 0px 33px 0px rgba(184, 177, 184, 1);
-        box-shadow: 0px 0px 40px 0px rgba(219, 219, 219, 1);
+        box-shadow: 0px 0px 40px 0px  rgba(219,219,219,1);
       }
     }
 
-    .login-title {
+    .register-title {
       margin-top: 50px;
       color: #50d5b7;
       animation: change-color 6s infinite ease-out;
@@ -72,43 +72,70 @@
       }
     }
 
-    .login-form {
+    .register-form {
       display: flex;
       justify-content: flex-start;
       align-items: center;
       flex-direction: column;
       padding: 100px 80px;
 
-      .login-input {
+      .register-input {
         border: none;
         border-bottom: 1px solid #555;
         padding: 5px 10px;
         outline: none;
         margin-bottom: 30px;
         width: 250px;
+        background: #fff;
         color: #555;
         font-weight: bold;
       }
 
-      .login-label {
+      .input-error {
+        border-bottom: 1px solid #FF3D0D;
+      }
+
+      .register-label {
         align-self: flex-start;
+        position: relative;
         color: #555;
         font-size: 14px;
         font-weight: bold;
         margin-bottom: 10px;
+        width: 70%;
+
+        .field-error {
+          color: #FF3D0D;
+          font-size: 11px;
+          margin-top: 5px;
+        }
+
+        .error-icon {
+          color: #FF3D0D;
+          position: absolute;
+          right: -80px;
+          transform: scale(1.2);
+        }
+
+        .error-icon:hover {
+
+          .auth-error-modal {
+            transition: 0.1s;
+            opacity: 1;
+          }
+        }
+
+        .hide {
+          display: none;
+        }
+      }
+
+      .error-label {
+        color: #FF3D0D;
       }
     }
 
-    .forgot-pass-link {
-      font-size: 14px;
-      margin-top: 20px;
-      margin-bottom: 50px;
-      color: #555;
-      text-decoration: none;
-      border-bottom: 1px solid #555;
-    }
-
-    .login-btn {
+    .register-btn {
       color: #fff;
       font-size: 18px;
       border: none;
@@ -116,9 +143,10 @@
       padding: 10px 40px;
       background-color: #f5bc5e;
       border-radius: 20px;
+      margin-bottom: 50px;
     }
 
-    .login-btn:hover {
+    .register-btn:hover {
       padding: 9px 40px;
       transition: 0.2s;
       background-color: #fff;

@@ -1,0 +1,23 @@
+.auth-error-modal {
+  padding: 7px 10px;
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  left: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 150px;
+  border: 1px solid #FF3D0D;
+  border-radius: 10px;
+  background-color: #fff;
+  font-family: 'Varela Round', sans-serif;
+
+  .auth-error {
+    color: red;
+    font-size: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+}

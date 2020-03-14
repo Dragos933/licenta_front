@@ -2,7 +2,6 @@ import * as types from './types';
 
 const initialState = () => {
   const token = localStorage.getItem('auth_token') || '';
-  console.log(token);
   return {
     data: {
       token

@@ -1,14 +1,26 @@
 import React from 'react';
 
 const AuthButton = (props) => {
-  const { buttonTxt, onClick, className } = props;
+  const { buttonTxt, onClick, className, disabled } = props;
   return (
-    <button
-      type='button'
-      onClick={onClick}
-      className={`auth-button ${className}`}>
-      {buttonTxt}
-    </button>
+    <>
+      {disabled === true ? (
+        <button
+          type='button'
+          onClick={onClick}
+          className={`auth-button ${className}`}
+          disabled>
+          {buttonTxt}
+        </button>
+      ) : (
+        <button
+          type='button'
+          onClick={onClick}
+          className={`auth-button ${className}`}>
+          {buttonTxt}
+        </button>
+      )}
+    </>
   );
 };
 
