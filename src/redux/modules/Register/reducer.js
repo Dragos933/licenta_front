@@ -6,7 +6,7 @@ const initialState = () => {
       register: {
         username: null,
         email: null,
-        password: null,
+        pass: null,
         rePassword: null,
       },
     },
@@ -18,7 +18,7 @@ const initialState = () => {
     errors: {
       username: [],
       email: [],
-      password: [],
+      pass: [],
       rePassword: [],
     }
   };
@@ -38,43 +38,27 @@ export default (state = initialState(), action = {}) => {
         }
       }
 
-    case types.UNREGISTER_ERROR:
+    case types.REGISTER_ERROR:
     {
-      const { key, error } = action.payload;
-      if (state.errors[key].includes(error[key])) {
-        const errors = {
-          ...state.errors,
-          [key]: [...state.errors[key].filter(item => item !== error[key])]
+      const { key, error, registerType } = action.payload;
+      if (registerType === 'register') {
+        if (state.errors[key].includes(error[key])) {
+          return state;
         }
         return {
           ...state,
           errors: {
-            ...errors,
+            ...state.errors,
+            [key]: [...state.errors[key], error[key]],
           }
+        }
+      } else {
+        const index = state.errors[key].indexOf(error[key]);
+        state.errors[key].splice(index, 1);
+        return {
+          ...state,
         };
       }
-      return {
-        ...state,
-      }
-    }
-
-    case types.REGISTER_ERROR:
-    {
-      const { key, error } = action.payload;
-      const errors = {
-        ...state.errors,
-        [key]: [...state.errors[key], error[key]],
-      }
-      if (state.errors[key].includes(error[key])) {
-        return state;
-      }
-
-      return {
-        ...state,
-        errors: {
-          ...errors,
-        }
-      };
     }
     default:
       return state;

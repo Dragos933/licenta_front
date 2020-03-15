@@ -5,6 +5,5 @@ export const setField = (data) => async (dispatch) => {
 }
 
 export const registerError = (data) => async (dispatch) => {
-  console.log(data);
   dispatch(ac.registerError(data));
 }
