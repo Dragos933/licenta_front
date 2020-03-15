@@ -7,5 +7,5 @@ import Register from './modules/Register/reducer';
 export default combineReducers({
   routing: routerReducer,
   Login,
-  Register,
+  Register
 });

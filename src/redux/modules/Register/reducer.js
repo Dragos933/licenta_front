@@ -7,8 +7,8 @@ const initialState = () => {
         username: null,
         email: null,
         pass: null,
-        rePassword: null,
-      },
+        rePassword: null
+      }
     },
     apiStatus: {
       pending: false,
@@ -19,7 +19,7 @@ const initialState = () => {
       username: [],
       email: [],
       pass: [],
-      rePassword: [],
+      rePassword: []
     }
   };
 };
@@ -33,32 +33,30 @@ export default (state = initialState(), action = {}) => {
           ...state.data,
           register: {
             ...state.data.register,
-            ...action.payload,
+            ...action.payload
           }
         }
-      }
+      };
 
-    case types.REGISTER_ERROR:
-    {
-      const { key, error, registerType } = action.payload;
-      if (registerType === 'register') {
-        if (state.errors[key].includes(error[key])) {
-          return state;
-        }
-        return {
-          ...state,
-          errors: {
-            ...state.errors,
-            [key]: [...state.errors[key], error[key]],
-          }
-        }
-      } else {
-        const index = state.errors[key].indexOf(error[key]);
-        state.errors[key].splice(index, 1);
-        return {
-          ...state,
-        };
+    case types.UNREGISTER_ERROR: {
+      const { key, error } = action.payload;
+      const index = state.errors[key].indexOf(error);
+      state.errors[key].splice(index, 1);
+      return state;
+    }
+
+    case types.REGISTER_ERROR: {
+      const { key, error } = action.payload;
+      if (state.errors[key].includes(error)) {
+        return state;
       }
+      return {
+        ...state,
+        errors: {
+          ...state.errors,
+          [key]: [...state.errors[key], error]
+        }
+      };
     }
     default:
       return state;

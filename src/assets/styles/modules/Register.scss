@@ -17,38 +17,38 @@
     box-sizing: border-box;
     -webkit-box-shadow: 0px 0px 25px 0px rgba(184, 177, 184, 1);
     -moz-box-shadow: 0px 0px 33px 0px rgba(184, 177, 184, 1);
-    box-shadow: 0px 0px 33px 0px  rgba(219,219,219,1);
+    box-shadow: 0px 0px 33px 0px rgba(219, 219, 219, 1);
     animation: change-shadow 10s infinite ease;
 
     @keyframes change-shadow {
       0% {
         -webkit-box-shadow: 0px 0px 25px 0px rgba(184, 177, 184, 1);
         -moz-box-shadow: 0px 0px 33px 0px rgba(184, 177, 184, 1);
-        box-shadow: 0px 0px 40px 0px  rgba(219,219,219,1);
+        box-shadow: 0px 0px 40px 0px rgba(219, 219, 219, 1);
       }
 
       25% {
-        -webkit-box-shadow: 0px 0px 25px 0px rgba(255,238,212,1);
-        -moz-box-shadow: 0px 0px 33px 0px rgba(255,238,212,1);
-        box-shadow: 0px 0px 40px 0px  rgba(255,238,212,1);
+        -webkit-box-shadow: 0px 0px 25px 0px rgba(255, 238, 212, 1);
+        -moz-box-shadow: 0px 0px 33px 0px rgba(255, 238, 212, 1);
+        box-shadow: 0px 0px 40px 0px rgba(255, 238, 212, 1);
       }
 
       50% {
-        -webkit-box-shadow: 0px 0px 33px 0px rgba(212,255,234,1);
-        -moz-box-shadow: 0px 0px 33px 0px rgba(212,255,234,1);
-        box-shadow: 0px 0px 40px 0px rgba(212,255,234,1);
+        -webkit-box-shadow: 0px 0px 33px 0px rgba(212, 255, 234, 1);
+        -moz-box-shadow: 0px 0px 33px 0px rgba(212, 255, 234, 1);
+        box-shadow: 0px 0px 40px 0px rgba(212, 255, 234, 1);
       }
 
       75% {
-        -webkit-box-shadow: 0px 0px 25px 0px rgba(255,238,212,1);
-        -moz-box-shadow: 0px 0px 33px 0px rgba(255,238,212,1);
-        box-shadow: 0px 0px 40px 0px  rgba(255,238,212,1);
+        -webkit-box-shadow: 0px 0px 25px 0px rgba(255, 238, 212, 1);
+        -moz-box-shadow: 0px 0px 33px 0px rgba(255, 238, 212, 1);
+        box-shadow: 0px 0px 40px 0px rgba(255, 238, 212, 1);
       }
 
       100% {
         -webkit-box-shadow: 0px 0px 25px 0px rgba(184, 177, 184, 1);
         -moz-box-shadow: 0px 0px 33px 0px rgba(184, 177, 184, 1);
-        box-shadow: 0px 0px 40px 0px  rgba(219,219,219,1);
+        box-shadow: 0px 0px 40px 0px rgba(219, 219, 219, 1);
       }
     }
 
@@ -92,7 +92,7 @@
       }
 
       .input-error {
-        border-bottom: 1px solid #FF3D0D;
+        border-bottom: 1px solid #ff3d0d;
       }
 
       .register-label {
@@ -105,20 +105,19 @@
         width: 70%;
 
         .field-error {
-          color: #FF3D0D;
+          color: #ff3d0d;
           font-size: 11px;
           margin-top: 5px;
         }
 
         .error-icon {
-          color: #FF3D0D;
+          color: #ff3d0d;
           position: absolute;
           right: -80px;
           transform: scale(1.2);
         }
 
         .error-icon:hover {
-
           .auth-error-modal {
             transition: 0.1s;
             opacity: 1;
@@ -131,7 +130,7 @@
       }
 
       .error-label {
-        color: #FF3D0D;
+        color: #ff3d0d;
       }
     }
 
