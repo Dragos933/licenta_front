@@ -26,6 +26,11 @@
     border-radius: 40px 0px 0px 40px;
   }
 
+  .landing-nav:hover {
+    transition: 0.2s;
+    padding-left: 50px;
+  }
+
   .landing-nav:after {
     content: '';
     position: absolute;

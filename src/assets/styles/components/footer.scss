@@ -1,0 +1,28 @@
+.footer-container {
+  box-sizing: border-box;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: #fff;
+  background-color: #555;
+  font-size: 12px;
+  position: relative;
+
+  .footer-icons {
+    position: absolute;
+    right: 5%;
+    .footer-icon {
+      margin-right: 20px;
+      font-size: 30px;
+      box-sizing: border-box;
+    }
+
+    .footer-icon:hover {
+      transition: 1s;
+      transform: rotateZ(360deg);
+      color: #f5bc5e;
+    }
+  }
+}

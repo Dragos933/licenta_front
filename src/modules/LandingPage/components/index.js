@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Footer from '../../../components/footer/index';
 
 const LandingPage = () => {
   return (
@@ -8,16 +9,15 @@ const LandingPage = () => {
       <img
         className='landing-img'
         alt='LandingPage'
-        src='/images/LandingPage.jpg' />
+        src='/images/LandingPage.jpg'
+      />
       <Link id='nav-reg' className='landing-nav' to='/register'>
         Register
       </Link>
       <Link id='nav-log' className='landing-nav' to='/login'>
         Login
       </Link>
-      <div>
-        <p>Footer</p>
-      </div>
+      <Footer />
     </div>
   );
 };
