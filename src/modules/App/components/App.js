@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Route, Router, Redirect } from 'react-router-dom';
-import history from '../../../../history';
-import { isLoggedIn } from '../../../../utils';
+import history from '../../../history';
+import { isLoggedIn } from '../../../utils';
 
-import Login from '../../../Login/containers/LoginContainer';
-import Register from '../../../Register/containers/RegisterContainer';
-import ForgotPassword from '../../../ForgotPassword/containers/ForgotPasswordContainer';
+import Login from '../../Login/containers/LoginContainer';
+import Register from '../../Register/containers/RegisterContainer';
+import ForgotPassword from '../../ForgotPassword/containers/ForgotPasswordContainer';
+import LandingPage from '../../LandingPage/containers/LandingPageContainer';
 
 const PrivateRoute = ({ component: Component, ...others }) => {
   return (
@@ -22,7 +23,7 @@ export default class App extends Component {
     return (
       <Router history={history}>
         <main>
-          <Route exact path='/' component={ForgotPassword} />
+          <Route exact path='/' component={LandingPage} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
           <PrivateRoute />
