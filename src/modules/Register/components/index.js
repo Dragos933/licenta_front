@@ -1,6 +1,7 @@
 import React from 'react';
 import AuthButton from '../../../components/buttons/authButton';
 import ErrorModal from '../../../components/modals/auth';
+import Toast from '../../../components/toasts/index';
 
 export default class Register extends React.Component {
   onChange = (e) => {
@@ -153,11 +154,24 @@ export default class Register extends React.Component {
     }
   };
 
+  hasErrors = () => {
+    const { errors } = this.props;
+    const lens = Object.keys(errors).map((item) => errors[item].length);
+    const hasErrors = lens.filter((item) => item > 0);
+    console.log(hasErrors);
+    return hasErrors.length !== 0;
+  };
+
   render() {
     const { errors } = this.props;
     return (
       <div className='register-container'>
         <div className='register'>
+          <Toast
+            className="register-toast"
+            toastMsg="Error!"
+            errors={this.hasErrors()}
+          />
           <h1 className='component-title register-title'>Register</h1>
           <form onChange={this.onChange} className='register-form'>
             <label
