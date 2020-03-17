@@ -1,0 +1,60 @@
+.login {
+  .forgot-title {
+    margin-top: 50px;
+    color: #50d5b7;
+    animation: change-color 6s infinite ease-out;
+  }
+
+  @keyframes change-color {
+    0% {
+      color: #50d5b7;
+    }
+
+    50% {
+      color: #067d68;
+    }
+
+    100% {
+      color: #50d5b7;
+    }
+  }
+
+  .forgot-descr {
+    font-size: 12px;
+    padding-top: 20px;
+    color: #555;
+    font-weight: bold;
+  }
+
+  .forgot-btn {
+    margin-bottom: 50px;
+  }
+
+  .forgot-label {
+    position: relative;
+
+    .hide {
+      opacity: 0;
+    }
+
+    .error-icon {
+      position: absolute;
+      right: -230px;
+      color: #ff3d0d;
+    }
+
+    .error-icon:hover {
+      .auth-error-modal {
+        opacity: 1;
+      }
+    }
+  }
+
+  .error-label {
+    color: #ff3d0d !important;
+  }
+
+  .error-input {
+    border-bottom: 1px solid #ff3d0d !important;
+  }
+}

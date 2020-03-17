@@ -168,8 +168,8 @@ export default class Register extends React.Component {
       <div className='register-container'>
         <div className='register'>
           <Toast
-            className="register-toast"
-            toastMsg="Error!"
+            className='register-toast'
+            toastMsg='Error!'
             errors={this.hasErrors()}
           />
           <h1 className='component-title register-title'>Register</h1>
