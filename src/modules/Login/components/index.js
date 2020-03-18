@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import AuthButton from '../../../components/buttons/authButton';
+import Footer from '../../../components/footer/index';
 
 export default class Login extends React.Component {
   onChange = (e) => {
@@ -27,6 +29,7 @@ export default class Login extends React.Component {
   render() {
     return (
       <div className='login-container'>
+        <div className='extra' />
         <div className='login'>
           <h1 className='component-title login-title'>Login</h1>
           <form onChange={this.onChange} className='login-form'>
@@ -45,10 +48,18 @@ export default class Login extends React.Component {
             className='login-btn basic-btn'
             disabled={this.isDisabled(this.props)}
           />
-          <a className='forgot-pass-link' href='/forgot-password'>
-            Forgot password?
-          </a>
         </div>
+        <img alt='Login' src='/images/Login.jpg' />
+        <Footer />
+        <Link to='/register' className='nav-reg nav-item'>
+          Register
+        </Link>
+        <Link to='/' className='nav-lan nav-item'>
+          Landing Page
+        </Link>
+        <Link to='/forgot-password' className='nav-pas nav-item'>
+          Forgot Password
+        </Link>
       </div>
     );
   }

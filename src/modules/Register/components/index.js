@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import AuthButton from '../../../components/buttons/authButton';
 import ErrorModal from '../../../components/modals/auth';
 import Toast from '../../../components/toasts/index';
+import Footer from '../../../components/footer/index';
 
 export default class Register extends React.Component {
   onChange = (e) => {
@@ -158,7 +160,6 @@ export default class Register extends React.Component {
     const { errors } = this.props;
     const lens = Object.keys(errors).map((item) => errors[item].length);
     const hasErrors = lens.filter((item) => item > 0);
-    console.log(hasErrors);
     return hasErrors.length !== 0;
   };
 
@@ -166,12 +167,13 @@ export default class Register extends React.Component {
     const { errors } = this.props;
     return (
       <div className='register-container'>
+        <div className='extra' />
+        <Toast
+          className='register-toast'
+          toastMsg='Error!'
+          errors={this.hasErrors()}
+        />
         <div className='register'>
-          <Toast
-            className='register-toast'
-            toastMsg='Error!'
-            errors={this.hasErrors()}
-          />
           <h1 className='component-title register-title'>Register</h1>
           <form onChange={this.onChange} className='register-form'>
             <label
@@ -261,6 +263,14 @@ export default class Register extends React.Component {
             className='register-btn basic-btn'
           />
         </div>
+        <Footer />
+        <Link className='nav-item nav-reg' to='/login'>
+          Login
+        </Link>
+        <Link className='nav-item nav-log' to='/'>
+          Landing Page
+        </Link>
+        <img alt='Register' src='/images/Register.jpg' />
       </div>
     );
   }
