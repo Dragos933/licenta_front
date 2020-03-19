@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AuthButton from '../../../components/buttons/authButton';
 import Footer from '../../../components/footer/index';
 
 export default class Login extends React.Component {
+
   onChange = (e) => {
     this.props.setField({
       key: e.target.name,
@@ -17,6 +18,9 @@ export default class Login extends React.Component {
       email: this.props.email,
       password: this.props.password
     });
+    this.setState({
+      isSubmited: true,
+    })
   };
 
   isDisabled = ({ email, password }) => {
@@ -30,7 +34,7 @@ export default class Login extends React.Component {
     return (
       <div className='login-container'>
         <div className='extra' />
-        <div className='login'>
+        <div className={`login slide-in-3`}>
           <h1 className='component-title login-title'>Login</h1>
           <form onChange={this.onChange} className='login-form'>
             <label htmlFor='email' className='login-label'>
@@ -55,7 +59,7 @@ export default class Login extends React.Component {
           Register
         </Link>
         <Link to='/' className='nav-lan nav-item'>
-          Landing Page
+          Home
         </Link>
         <Link to='/forgot-password' className='nav-pas nav-item'>
           Forgot Password

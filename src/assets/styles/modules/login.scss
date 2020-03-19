@@ -8,6 +8,8 @@
   height: 100vh;
   position: relative;
 
+  
+
   .extra {
     height: 100px;
     width: 100%;
@@ -53,6 +55,28 @@
     bottom: 0;
     height: 200px;
     border-right: 1px solid #555;
+  }
+
+  .slide-in-3 { 
+    animation: slide-in-3 2s forwards ease;
+  }
+
+  @keyframes slide-in-3 {
+    0% {
+      transform: translateY(0px);
+    }
+
+    25% {
+      transform: translateY(20px);
+    }
+
+    50% {
+      transform: translateY(15px);
+    }
+
+    100% {
+      transform: translateY(20px);
+    }
   }
 
   .login {
