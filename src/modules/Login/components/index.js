@@ -4,7 +4,6 @@ import AuthButton from '../../../components/buttons/authButton';
 import Footer from '../../../components/footer/index';
 
 export default class Login extends React.Component {
-
   onChange = (e) => {
     this.props.setField({
       key: e.target.name,
@@ -19,8 +18,8 @@ export default class Login extends React.Component {
       password: this.props.password
     });
     this.setState({
-      isSubmited: true,
-    })
+      isSubmited: true
+    });
   };
 
   isDisabled = ({ email, password }) => {
@@ -34,7 +33,7 @@ export default class Login extends React.Component {
     return (
       <div className='login-container'>
         <div className='extra' />
-        <div className={`login slide-in-3`}>
+        <div className="login">
           <h1 className='component-title login-title'>Login</h1>
           <form onChange={this.onChange} className='login-form'>
             <label htmlFor='email' className='login-label'>

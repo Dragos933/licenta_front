@@ -6,12 +6,11 @@ import Toast from '../../../components/toasts/index';
 import Footer from '../../../components/footer/index';
 
 export default class Register extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      isSubmited: false,
-    }
+      isSubmited: false
+    };
   }
 
   onChange = (e) => {
@@ -162,8 +161,8 @@ export default class Register extends React.Component {
     if (numberOfErors === 0) {
       this.props.register(registerData);
       this.setState({
-        isSubmited: true,
-      })
+        isSubmited: true
+      });
     }
   };
 
@@ -185,16 +184,16 @@ export default class Register extends React.Component {
           toastMsg='Error!'
           errors={this.hasErrors()}
         />
-        {
-          isSubmited
-          ?
-          <div className={`registration-msg vivify popIn delay-1000`}>
-            <p className="first">Thank you for your registration!</p>
-            <p className="second">Check your email to confirm your account.</p>
+        {isSubmited ? (
+          <div className="registration-msg vivify popIn delay-1000">
+            <p className='first'>Thank you for your registration!</p>
+            <p className='second'>Check your email to confirm your account.</p>
           </div>
-          : null
-        }
-        <div className={`register vivify ${!isSubmited ? 'slide-in': ''} ${isSubmited ? 'fold' : ''}`}>
+        ) : null}
+        <div
+          className={`register vivify ${!isSubmited ? 'slide-in' : ''} ${
+            isSubmited ? 'fold' : ''
+          }`}>
           <h1 className='component-title register-title'>Register</h1>
           <form onChange={this.onChange} className='register-form'>
             <label

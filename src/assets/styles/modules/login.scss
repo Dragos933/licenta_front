@@ -8,8 +8,6 @@
   height: 100vh;
   position: relative;
 
-  
-
   .extra {
     height: 100px;
     width: 100%;
@@ -57,38 +55,35 @@
     border-right: 1px solid #555;
   }
 
-  .slide-in-3 { 
-    animation: slide-in-3 2s forwards ease;
-  }
-
-  @keyframes slide-in-3 {
-    0% {
-      transform: translateY(0px);
-    }
-
-    25% {
-      transform: translateY(20px);
-    }
-
-    50% {
-      transform: translateY(15px);
-    }
-
-    100% {
-      transform: translateY(20px);
-    }
-  }
-
   .login {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    background-color: #fff;
+    background-color: #000;
     border-radius: 30px;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box; /* Firefox, other Gecko */
     box-sizing: border-box;
+    animation: slide-in-3 4s forwards ease-in;
+
+    @keyframes slide-in-3 {
+      0% {
+        transform: translateY(0px);
+      }
+
+      25% {
+        transform: translateY(15px);
+      }
+
+      50% {
+        transform: translateY(10px);
+      }
+
+      100% {
+        transform: translateY(15px);
+      }
+    }
 
     .login-title {
       margin-top: 50px;

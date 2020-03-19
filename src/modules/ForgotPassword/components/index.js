@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import AuthButton from '../../../components/buttons/authButton';
 import ErrorModal from '../../../components/modals/auth';
 import api from '../../../api/auth';
 import Footer from '../../../components/footer/index';
-import { Link } from 'react-router-dom';
 import Toast from '../../../components/toasts/index';
 
 const ForgotPassword = () => {
@@ -40,16 +40,12 @@ const ForgotPassword = () => {
 
   const hasError = () => {
     return errors.length > 0;
-  }
+  };
 
   return (
     <div className='login-container forgot-pass-container'>
       <div className='extra' />
-      <Toast
-          className='forgot-toast'
-          toastMsg='Error!'
-          errors={hasError()}
-        />
+      <Toast className='forgot-toast' toastMsg='Error!' errors={hasError()} />
       <div className='login'>
         <h1 className='component-title forgot-title'>Forgot Password</h1>
         <p className='forgot-descr'>
@@ -83,15 +79,15 @@ const ForgotPassword = () => {
         />
       </div>
       <img alt='Login' src='/images/ForgotPassword.jpg' />
-        <Link to='/register' className='nav-reg nav-item'>
-          Register
-        </Link>
-        <Link to='/' className='nav-lan nav-item'>
-          Home
-        </Link>
-        <Link to='/login' className='nav-pas nav-item'>
-          Login
-        </Link>
+      <Link to='/register' className='nav-reg nav-item'>
+        Register
+      </Link>
+      <Link to='/' className='nav-lan nav-item'>
+        Home
+      </Link>
+      <Link to='/login' className='nav-pas nav-item'>
+        Login
+      </Link>
       <Footer />
     </div>
   );

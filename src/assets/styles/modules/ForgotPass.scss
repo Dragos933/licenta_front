@@ -97,8 +97,17 @@
   }
 
   @keyframes shrink {
-    0% {background-color: #ff3d0d; opacity: 1;}
-    50% {background-color: #FF3300; opacity: 0.75; }
-    100% {background-color: #ff3d0d; opacity: 1;}
+    0% {
+      background-color: #ff3d0d;
+      opacity: 1;
+    }
+    50% {
+      background-color: #ff3300;
+      opacity: 0.75;
+    }
+    100% {
+      background-color: #ff3d0d;
+      opacity: 1;
+    }
   }
 }

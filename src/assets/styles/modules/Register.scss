@@ -43,9 +43,18 @@
   }
 
   @keyframes shrink {
-    0% {background-color: #ff3d0d; opacity: 1;}
-    50% {background-color: #FF3300; opacity: 0.75; }
-    100% {background-color: #ff3d0d; opacity: 1;}
+    0% {
+      background-color: #ff3d0d;
+      opacity: 1;
+    }
+    50% {
+      background-color: #ff3300;
+      opacity: 0.75;
+    }
+    100% {
+      background-color: #ff3d0d;
+      opacity: 1;
+    }
   }
 
   .extra {
@@ -58,10 +67,7 @@
     left: 0;
     top: 45%;
     width: 500px;
-   
   }
-
-  
 
   .nav-item {
     position: absolute;
@@ -101,7 +107,7 @@
   }
 
   .slide-in {
-    animation: slide-in 4s forwards ease;
+    animation: slide-in 4s forwards ease-in;
   }
 
   @keyframes slide-in {
@@ -110,15 +116,15 @@
     }
 
     25% {
-      transform: translateY(20px);
-    }
-
-    50% {
       transform: translateY(15px);
     }
 
+    50% {
+      transform: translateY(10px);
+    }
+
     100% {
-      transform: translateY(20px);
+      transform: translateY(15px);
     }
   }
 
