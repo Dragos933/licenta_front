@@ -33,7 +33,7 @@ export default class Login extends React.Component {
     return (
       <div className='login-container'>
         <div className='extra' />
-        <div className="login">
+        <div className='login'>
           <h1 className='component-title login-title'>Login</h1>
           <form onChange={this.onChange} className='login-form'>
             <label htmlFor='email' className='login-label'>

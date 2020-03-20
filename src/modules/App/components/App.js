@@ -7,6 +7,7 @@ import Login from '../../Login/containers/LoginContainer';
 import Register from '../../Register/containers/RegisterContainer';
 import ForgotPassword from '../../ForgotPassword/containers/ForgotPasswordContainer';
 import LandingPage from '../../LandingPage/containers/LandingPageContainer';
+import Home from '../../Home/containers/HomeContainer';
 
 const PrivateRoute = ({ component: Component, ...others }) => {
   return (
@@ -24,9 +25,10 @@ export default class App extends Component {
       <Router history={history}>
         <main>
           <Route exact path='/' component={LandingPage} />
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/register' component={Register} />
-          <Route exact path='/forgot-password' component={ForgotPassword} />
+          <Route path='/login' component={Login} />
+          <Route path='/register' component={Register} />
+          <Route path='/forgot-password' component={ForgotPassword} />
+          <Route path='/home' component={Home} />
           <PrivateRoute />
         </main>
       </Router>

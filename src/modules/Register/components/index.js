@@ -185,7 +185,7 @@ export default class Register extends React.Component {
           errors={this.hasErrors()}
         />
         {isSubmited ? (
-          <div className="registration-msg vivify popIn delay-1000">
+          <div className='registration-msg vivify popIn delay-1000'>
             <p className='first'>Thank you for your registration!</p>
             <p className='second'>Check your email to confirm your account.</p>
           </div>

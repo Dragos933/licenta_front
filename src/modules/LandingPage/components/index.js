@@ -11,6 +11,9 @@ const LandingPage = () => {
         alt='LandingPage'
         src='/images/LandingPage.jpg'
       />
+      <Link id='nav-hom' className='landing-nav' to='/home'>
+        Hoome
+      </Link>
       <Link id='nav-reg' className='landing-nav' to='/register'>
         Register
       </Link>
