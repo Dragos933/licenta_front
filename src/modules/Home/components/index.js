@@ -4,11 +4,16 @@ import LeftPanel from './LeftPanel/index';
 import MiddlePanel from './MiddlePanel/index';
 import RightPanel from './RightPanel/index';
 import { days, weekDays } from '../../../utils/constants';
+import api from '../../../api/auth';
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+  }
+
+  async componentDidMount() {
+    await api.getHome();
   }
 
   render() {
