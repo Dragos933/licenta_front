@@ -3,7 +3,6 @@ import * as ac from './actionCreators';
 export const register = (data) => async (dispatch) => {
   dispatch(ac.asyncRegister.pending());
   try {
-    console.log(data);
     dispatch(ac.asyncRegister.success());
   } catch (error) {
     dispatch(ac.asyncRegister.error(error));

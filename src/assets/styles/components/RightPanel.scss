@@ -6,5 +6,106 @@
     height: 50%;
     background-color: #fff;
     border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    -webkit-box-shadow: 10px -10px 0px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 0px 0px rgba(212, 212, 212, 1);
+
+    .calendar-control {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      .title {
+        font-size: 32px;
+        padding: 0px 20px;
+      }
+
+      i {
+        color: #555;
+        border-radius: 50%;
+        padding: 3px;
+      }
+
+      i:hover {
+        transition: 0.2s;
+        background-color: wheat;
+        color: #fff;
+      }
+    }
+
+    .calendar {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+
+      span {
+        width: 54px;
+        height: 54px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .day-name-week {
+        color: wheat;
+        font-weight: bold;
+      }
+
+      .hide-days {
+        opacity: 0;
+      }
+
+      .day {
+        span {
+          padding: 0;
+          width: 70%;
+          height: 70%;
+          border-radius: 50%;
+          background-color: white;
+        }
+      }
+
+      .week-day {
+        border-radius: 50%;
+        color: #fff;
+        font-weight: bold;
+
+        span {
+          background-color: wheat;
+        }
+      }
+
+      .work-day {
+        span:hover {
+          background-color: #408f90;
+          transition: 0.2s;
+          color: white;
+        }
+      }
+
+      .pending {
+        span {
+          background-color: #f08345;
+        }
+      }
+
+      .open {
+        span {
+          background-color: #50d5b7;
+        }
+      }
+
+      .closed {
+        span {
+          background-color: #ff3d0d;
+        }
+      }
+    }
   }
 }

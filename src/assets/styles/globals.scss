@@ -42,3 +42,9 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: #555 !important;
   transition: background-color 5000s ease-in-out 0s;
 }
+
+::-webkit-scrollbar {
+  display: none;
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}

@@ -110,8 +110,6 @@ const LeftPanel = (props) => {
     );
   };
 
-  console.log(filters);
-
   return (
     <div className='left-panel panel'>
       <div className='home-info'>
