@@ -25,11 +25,10 @@ export default class App extends Component {
       <Router history={history}>
         <main>
           <Route exact path='/' component={LandingPage} />
-          <Route path='/login' component={Login} />
-          <Route path='/register' component={Register} />
-          <Route path='/forgot-password' component={ForgotPassword} />
-          <Route path='/home' component={Home} />
-          <PrivateRoute />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/register' component={Register} />
+          <Route exact path='/forgot-password' component={ForgotPassword} />
+          <PrivateRoute exact path='/home' component={Home} />
         </main>
       </Router>
     );

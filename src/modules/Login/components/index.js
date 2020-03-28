@@ -20,6 +20,7 @@ export default class Login extends React.Component {
     this.setState({
       isSubmited: true
     });
+    this.props.history.push('/home');
   };
 
   isDisabled = ({ email, password }) => {

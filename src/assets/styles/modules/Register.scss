@@ -57,6 +57,26 @@
     }
   }
 
+  .success-toast {
+    background-color: green;
+    animation: shrink-success 2s infinite ease;
+  }
+
+  @keyframes shrink-success {
+    0% {
+      background-color: #50d5b7;
+      opacity: 1;
+    }
+    50% {
+      background-color: #067d68;
+      opacity: 0.75;
+    }
+    100% {
+      background-color: #50d5b7;
+      opacity: 1;
+    }
+  }
+
   .extra {
     height: 100px;
     width: 100%;
@@ -166,6 +186,26 @@
       align-items: center;
       flex-direction: column;
       padding: 100px 80px;
+
+      .custom-error-register {
+        font-size: 14px;
+        font-weight: bold;
+        animation: pulse 2s infinite ease;
+      }
+
+      @keyframes pulse {
+        0% {
+          color: #ff3e0e;
+        }
+
+        50% {
+          color: #e60000;
+        }
+
+        100% {
+          color: #ff3e0e;
+        }
+      }
 
       .register-input {
         border: none;

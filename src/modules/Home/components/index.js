@@ -12,9 +12,7 @@ export default class Home extends React.Component {
     this.state = {};
   }
 
-  async componentDidMount() {
-    await api.getHome();
-  }
+  async componentDidMount() {}
 
   render() {
     return (

@@ -1,9 +1,13 @@
 import * as ac from './actionCreators';
+import api from '../../../api/auth';
 
 export const login = (data) => async (dispatch) => {
   dispatch(ac.asyncLogin.pending());
   try {
-    dispatch(ac.asyncLogin.success(data));
+    const res = await api.login(data);
+    localStorage.setItem('token', res.data.jwt);
+    localStorage.setItem('user', res.data.user);
+    dispatch(ac.asyncLogin.success(res.data));
   } catch (error) {
     dispatch(ac.asyncLogin.error(error));
   }

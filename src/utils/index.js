@@ -1,9 +1,8 @@
 import jwtDecode from 'jwt-decode';
 import store from '../redux/store';
-import { selectToken } from '../redux/modules/Login/selectors';
 
 export const isLoggedIn = () => {
-  const token = selectToken(store.getState());
+  const token = localStorage.getItem('token');
   return isValidToken(token);
 };
 

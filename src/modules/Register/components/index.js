@@ -13,6 +13,10 @@ export default class Register extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.props.resetFields();
+  }
+
   onChange = (e) => {
     this.props.setField({
       [e.target.name]: e.target.value
@@ -148,21 +152,45 @@ export default class Register extends React.Component {
     });
   };
 
+  formatData = (data) => {
+    return {
+      username: data.username,
+      email: data.email,
+      password: data.pass,
+      role: {
+        name: 'Public',
+        description: 'Default role for users',
+        type: 'public'
+      },
+      confirmed: false
+    };
+  };
+
   onSubmit = async (e) => {
     e.preventDefault();
     const { registerData } = this.props;
     await this.validate(registerData);
     const { errors } = this.props;
-    const res = Object.keys(errors).map((item) => errors[item].length);
+    const res = Object.keys(errors).map((item) => {
+      if (item !== 'register') {
+        return errors[item].length;
+      }
+      return 0;
+    });
     let numberOfErors = 0;
     for (let i = 0; i < res.length; i++) {
       numberOfErors += res[i];
     }
     if (numberOfErors === 0) {
-      this.props.register(registerData);
-      this.setState({
-        isSubmited: true
-      });
+      const formatedData = this.formatData(registerData);
+      await this.props.register(formatedData);
+      if (this.props.hasRegistered) {
+        this.setState({
+          ...this.state,
+          isSubmited: true
+        });
+        await this.props.createTree();
+      }
     }
   };
 
@@ -180,9 +208,9 @@ export default class Register extends React.Component {
       <div className='register-container'>
         <div className='extra' />
         <Toast
-          className='register-toast'
-          toastMsg='Error!'
-          errors={this.hasErrors()}
+          className={`register-toast ${isSubmited ? 'success-toast' : ''}`}
+          toastMsg={isSubmited ? 'Success!' : 'Error!'}
+          errors={isSubmited ? true : this.hasErrors()}
         />
         {isSubmited ? (
           <div className='registration-msg vivify popIn delay-1000'>
@@ -276,6 +304,15 @@ export default class Register extends React.Component {
                 errors.rePassword.length > 0 ? 'input-error' : ''
               }`}
             />
+            {errors.register.map((item, index) => {
+              return (
+                <p key={index} className='custom-error-register'>
+                  - 
+                  {' '}
+                  {item}
+                </p>
+              );
+            })}
           </form>
           <AuthButton
             onClick={(e) => this.onSubmit(e)}

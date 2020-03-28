@@ -6,12 +6,15 @@ import {
   setField,
   registerError,
   unregisterError,
-  register
+  register,
+  createTree,
+  resetFields
 } from '../../../redux/modules/Register/actions';
 
 import {
   selectRegister,
-  selectErrors
+  selectErrors,
+  selectHasRegisterd
 } from '../../../redux/modules/Register/selectors';
 
 const mapActionToProps = (dispatch) =>
@@ -20,14 +23,17 @@ const mapActionToProps = (dispatch) =>
       setField,
       registerError,
       unregisterError,
-      register
+      register,
+      createTree,
+      resetFields
     },
     dispatch
   );
 
 const mapStateToProps = (state) => ({
   registerData: selectRegister(state),
-  errors: selectErrors(state)
+  errors: selectErrors(state),
+  hasRegistered: selectHasRegisterd(state)
 });
 
 export default connect(mapStateToProps, mapActionToProps)(Register);

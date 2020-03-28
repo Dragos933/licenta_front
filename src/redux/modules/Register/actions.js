@@ -1,11 +1,28 @@
 import * as ac from './actionCreators';
+import api from '../../../api/auth';
+
+export const resetFields = () => async (dispatch) => {
+  dispatch(ac.resetFields());
+};
+
+export const createTree = () => async (dispatch, getState) => {
+  dispatch(ac.asyncCreateTree.pending());
+  try {
+    const { user } = getState().Register.data;
+    const res = await api.createTree({ user: user.username, level: 1 });
+    dispatch(ac.asyncCreateTree.success(res.data));
+  } catch (error) {
+    dispatch(ac.asyncCreateTree.error(error.message));
+  }
+};
 
 export const register = (data) => async (dispatch) => {
   dispatch(ac.asyncRegister.pending());
   try {
-    dispatch(ac.asyncRegister.success());
+    const res = await api.register(data);
+    dispatch(ac.asyncRegister.success(res.data));
   } catch (error) {
-    dispatch(ac.asyncRegister.error(error));
+    dispatch(ac.asyncRegister.error(error.message));
   }
 };
 

@@ -15,6 +15,11 @@ const LeftPanel = (props) => {
     }
   };
 
+  const logout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+  };
+
   const renderChecks = () => {
     return (
       <>
@@ -145,7 +150,7 @@ const LeftPanel = (props) => {
           </div>
         </div>
         <div className='buttons'>
-          <Link to='/' className='btn'>
+          <Link onClick={logout} to='/' className='btn'>
             Logout
           </Link>
           <Link to='/create-event' className='btn btn-event'>
