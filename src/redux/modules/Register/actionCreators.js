@@ -20,3 +20,9 @@ export const asyncCreateTree = asyncActionCreator(
   types.CREATE_TREE_SUCCESS,
   types.CREATE_TREE_ERROR
 );
+
+export const asyncSendEmail = asyncActionCreator(
+  types.SEND_EMAIL_PENDING,
+  types.SEND_EMAIL_SUCCESS,
+  types.SEND_EMAIL_ERROR
+);

@@ -8,7 +8,8 @@ import {
   unregisterError,
   register,
   createTree,
-  resetFields
+  resetFields,
+  sendEmail
 } from '../../../redux/modules/Register/actions';
 
 import {
@@ -25,7 +26,8 @@ const mapActionToProps = (dispatch) =>
       unregisterError,
       register,
       createTree,
-      resetFields
+      resetFields,
+      sendEmail
     },
     dispatch
   );

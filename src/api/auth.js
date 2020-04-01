@@ -8,7 +8,7 @@ const getEvents = () => {
 
 const register = async (data) => {
   return await axios
-    .post(`${path  }/auth/local/register`, data)
+    .post(`${path}/auth/local/register`, data)
     .then((response) => {
       // Success registration
       return response;
@@ -19,9 +19,20 @@ const register = async (data) => {
     });
 };
 
+const updateFirstRegister = async (data) => {
+  return axios
+    .put(`${path}/users/${data}`, {
+      confirmed: false
+    })
+    .then((response) => response)
+    .catch((error) => {
+      throw new Error('Error Updating User!');
+    });
+};
+
 const login = async (data) => {
   return await axios
-    .post(`${path  }/auth/local`, {
+    .post(`${path}/auth/local`, {
       identifier: data.email,
       password: data.password
     })
@@ -32,12 +43,29 @@ const login = async (data) => {
 };
 
 const createTree = async (data) => {
-  console.log(data);
   return await axios
-    .post(`${path  }/trees`, data)
+    .post(`${path}/trees`, data)
     .then((response) => response)
     .catch((error) => {
       throw new Error(returnError(error));
+    });
+};
+
+const sendEmail = async (data) => {
+  return await axios
+    .post(`${path}/auth/send-email-confirmation`, data)
+    .then((response) => response)
+    .catch((error) => {
+      throw new Error('Error sending confirmation email!');
+    });
+};
+
+const forgotPassword = async (data) => {
+  return await axios
+    .post(`${path}/auth/forgot-password`, { email: data })
+    .then((response) => response)
+    .catch((error) => {
+      throw new Error('Error sending forgot password email!');
     });
 };
 
@@ -49,5 +77,8 @@ export default {
   getEvents,
   register,
   login,
-  createTree
+  createTree,
+  sendEmail,
+  updateFirstRegister,
+  forgotPassword
 };

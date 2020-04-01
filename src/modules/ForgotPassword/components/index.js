@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AuthButton from '../../../components/buttons/authButton';
 import ErrorModal from '../../../components/modals/auth';
-import api from '../../../api/auth';
 import Footer from '../../../components/footer/index';
 import Toast from '../../../components/toasts/index';
 
-const ForgotPassword = () => {
+const ForgotPassword = (props) => {
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState([]);
 
@@ -14,10 +13,10 @@ const ForgotPassword = () => {
     setEmail(e.target.value);
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     validate();
     if (errors.length === 0) {
-      api.forgotPassword(email);
+      await props.sendEmail(email);
     }
   };
 

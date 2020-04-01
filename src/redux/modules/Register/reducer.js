@@ -66,6 +66,43 @@ export default (state = initialState(), action = {}) => {
         }
       };
 
+    case types.SEND_EMAIL_PENDING: {
+      return {
+        ...state,
+        apiState: {
+          pending: true,
+          success: false,
+          error: false
+        }
+      };
+    }
+
+    case types.SEND_EMAIL_SUCCESS: {
+      return {
+        ...state,
+        apiState: {
+          pending: false,
+          success: true,
+          error: false
+        }
+      };
+    }
+
+    case types.SEND_EMAIL_ERROR: {
+      return {
+        ...state,
+        apiState: {
+          pending: false,
+          success: false,
+          error: true
+        },
+        errors: {
+          ...state.errors,
+          register: [...state.errors.register, action.payload]
+        }
+      };
+    }
+
     case types.CREATE_TREE_PENDING: {
       return {
         ...state,

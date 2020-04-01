@@ -2,11 +2,17 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ForgotPassword from '../components/index';
 
-import {} from '../../../redux/modules/Register/actions';
+import { sendEmail } from '../../../redux/modules/ForgotPassword/actions';
 
-import {} from '../../../redux/modules/Register/selectors';
+import {} from '../../../redux/modules/ForgotPassword/selectors';
 
-const mapActionToProps = (dispatch) => bindActionCreators({}, dispatch);
+const mapActionToProps = (dispatch) =>
+  bindActionCreators(
+    {
+      sendEmail
+    },
+    dispatch
+  );
 
 const mapStateToProps = (state) => ({});
 

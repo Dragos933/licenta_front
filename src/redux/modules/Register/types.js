@@ -12,4 +12,8 @@ export const CREATE_TREE_PENDING = `${_module}/CREATE_TREE_PENDING`;
 export const CREATE_TREE_SUCCESS = `${_module}/CREATE_TREE_SUCCESS`;
 export const CREATE_TREE_ERROR = `${_module}/CREATE_TREE_ERROR`;
 
+export const SEND_EMAIL_PENDING = `${_module}/SEND_EMAIL_PENDING`;
+export const SEND_EMAIL_SUCCESS = `${_module}/SEND_EMAIL_SUCCESS`;
+export const SEND_EMAIL_ERROR = `${_module}/SEND_EMAIL_ERROR`;
+
 export const RESET_FIELDS = `${_module}/RESET_FIELDS`;

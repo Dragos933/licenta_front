@@ -189,7 +189,8 @@ export default class Register extends React.Component {
           ...this.state,
           isSubmited: true
         });
-        await this.props.createTree();
+        this.props.createTree();
+        this.props.sendEmail();
       }
     }
   };
