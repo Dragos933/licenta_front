@@ -8,6 +8,7 @@ import Register from '../../Register/containers/RegisterContainer';
 import ForgotPassword from '../../ForgotPassword/containers/ForgotPasswordContainer';
 import LandingPage from '../../LandingPage/containers/LandingPageContainer';
 import Home from '../../Home/containers/HomeContainer';
+import VerifyNumber from '../../VerfiyNumber/containers/VerifyNumberContainer';
 
 const PrivateRoute = ({ component: Component, ...others }) => {
   return (
@@ -29,6 +30,11 @@ export default class App extends Component {
           <Route exact path='/register' component={Register} />
           <Route exact path='/forgot-password' component={ForgotPassword} />
           <PrivateRoute exact path='/home' component={Home} />
+          <PrivateRoute
+            exact
+            path='/profile/verify-number'
+            component={VerifyNumber}
+          />
         </main>
       </Router>
     );

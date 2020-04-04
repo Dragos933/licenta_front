@@ -17,19 +17,10 @@ const initialState = () => {
 
 export default (state = initialState(), action = {}) => {
   switch (action.type) {
-    case types.SET_FIELD:
-      return {
-        ...state,
-        data: {
-          ...state.data,
-          [action.payload.key]: action.payload.value
-        }
-      };
-
     case types.SEND_EMAIL_PENDING: {
       return {
         ...state,
-        apiState: {
+        apiStatus: {
           pending: true,
           success: false,
           error: false
@@ -40,7 +31,7 @@ export default (state = initialState(), action = {}) => {
     case types.SEND_EMAIL_SUCCESS: {
       return {
         ...state,
-        apiState: {
+        apiStatus: {
           pending: false,
           success: true,
           error: false
@@ -49,10 +40,9 @@ export default (state = initialState(), action = {}) => {
     }
 
     case types.SEND_EMAIL_ERROR: {
-      console.log(action.payload);
       return {
         ...state,
-        apiState: {
+        apiStatus: {
           pending: false,
           success: false,
           error: true

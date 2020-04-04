@@ -156,7 +156,7 @@ const LeftPanel = (props) => {
           <Link to='/create-event' className='btn btn-event'>
             Create event
           </Link>
-          <Link to='/profile' className='btn btn-profile'>
+          <Link to='/profile/verify-number' className='btn btn-profile'>
             Profile
           </Link>
         </div>

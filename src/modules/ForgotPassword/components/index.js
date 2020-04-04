@@ -14,7 +14,7 @@ const ForgotPassword = (props) => {
   };
 
   const onSubmit = async (e) => {
-    validate();
+    await validate();
     if (errors.length === 0) {
       await props.sendEmail(email);
     }

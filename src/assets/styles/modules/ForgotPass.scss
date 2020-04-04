@@ -25,6 +25,17 @@
     padding-top: 20px;
     color: #555;
     font-weight: bold;
+    overflow: hidden;
+  }
+
+  @keyframes appear {
+    0% {
+      width: 0%;
+    }
+
+    100% {
+      width: 100%;
+    }
   }
 
   .forgot-btn {

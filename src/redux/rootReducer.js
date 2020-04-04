@@ -3,9 +3,13 @@ import { routerReducer } from 'react-router-redux';
 
 import Login from './modules/Login/reducer';
 import Register from './modules/Register/reducer';
+import ForgotPassword from './modules/ForgotPassword/reducer';
+import VerifyNumber from './modules/VerifyNumber/reducer';
 
 export default combineReducers({
   routing: routerReducer,
   Login,
-  Register
+  Register,
+  ForgotPassword,
+  VerifyNumber
 });
