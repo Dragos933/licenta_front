@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 const RightPanel = (props) => {
@@ -13,6 +14,11 @@ const RightPanel = (props) => {
       return 'day-name-week';
     }
     return '';
+  };
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
   };
 
   const renderDays = () => {
@@ -96,6 +102,17 @@ const RightPanel = (props) => {
           })}
           {renderDays()}
         </div>
+      </div>
+      <div className='buttons'>
+        <Link onClick={logout} to='/' className='btn'>
+          Logout
+        </Link>
+        <Link to='/create-event' className='btn btn-event'>
+          Create event
+        </Link>
+        <Link to='/profile/verify-number' className='btn btn-profile'>
+          Profile
+        </Link>
       </div>
     </div>
   );

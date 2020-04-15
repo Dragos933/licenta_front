@@ -5,11 +5,11 @@
 
   .panel-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 
     .panel {
-      width: 30%;
+      width: 25%;
       height: 90.3vh;
       display: flex;
       justify-content: center;

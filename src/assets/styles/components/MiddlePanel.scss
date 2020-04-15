@@ -10,46 +10,51 @@
     overflow: scroll;
     overflow-x: hidden;
     box-sizing: border-box;
-    padding: 20px;
 
     .event-item {
-      border: 1px solid #e8e8e8;
-      width: 80%;
+      border-top: 3px solid #f7e2d4;
+      border-left: 3px solid #f7e2d4;
+      border-bottom: 3px solid #f7e2d4;
+      border-right: 3px solid #f7e2d4;
+      box-sizing: border-box;
+      color: #555;
+      font-weight: bold;
+      width: 95%;
       padding: 20px;
       min-height: 200px;
       border-radius: 20px;
       margin-bottom: 20px;
+      z-index: 1000;
       background-color: #fff;
-      -webkit-box-shadow: 0px 0px 20px 0px rgba(245, 188, 94, 1);
-      -moz-box-shadow: 0px 0px 20px 0px rgba(245, 188, 94, 1);
-      box-shadow: 0px 0px 5px 0px rgba(245, 188, 94, 1);
-      animation: shadow 20s infinite ease;
+      // -webkit-box-shadow: 0px 0px 20px 0px rgba(245, 188, 94, 1);
+      // -moz-box-shadow: 0px 0px 20px 0px rgba(245, 188, 94, 1);
+      animation: shadow 10s ease infinite;
 
       @keyframes shadow {
         0% {
-          box-shadow: 0px 0px 3px 0px rgba(245, 188, 94, 1);
+          // box-shadow: 15px 15px 0px 0px rgb(224,205,241);
+          border-top: 3px solid #f7e2d4;
+          border-left: 3px solid #f7e2d4;
         }
 
-        20% {
-          box-shadow: 0px 0px 3px 0px rgba(80, 213, 183, 1);
-        }
-
-        40% {
-          box-shadow: 0px 0px 3px 0px rgba(255, 61, 13, 1);
-        }
-
-        60% {
-          box-shadow: 0px 0px 3px 0px rgba(245, 188, 94, 1);
-        }
-
-        80% {
-          box-shadow: 0px 0px 3px 0px rgba(80, 213, 183, 1);
+        50% {
+          border-top: 3px solid #f5d3d4;
+          border-left: 3px solid #f5d3d4;
         }
 
         100% {
-          box-shadow: 0px 0px 3px 0px rgba(245, 188, 94, 1);
+          // box-shadow: 15px 15px 0px 0px rgb(224,205,241);
+          border-top: 3px solid #f7e2d4;
+          border-left: 3px solid #f7e2d4;
         }
       }
+    }
+
+    .event-item:hover {
+      transition: 0.3s;
+      transform: scale(1.01);
+      border-bottom: 3px solid #f5d3d4;
+      border-right: 3px solid #f5d3d4;
     }
   }
 }

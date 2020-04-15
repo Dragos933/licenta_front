@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 const LeftPanel = (props) => {
   const { name = 'No Namer', level = 1 } = props;
@@ -13,11 +12,6 @@ const LeftPanel = (props) => {
     } else {
       setFilters([...filters, filter]);
     }
-  };
-
-  const logout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
   };
 
   const renderChecks = () => {
@@ -148,17 +142,6 @@ const LeftPanel = (props) => {
               {renderDates()}
             </div>
           </div>
-        </div>
-        <div className='buttons'>
-          <Link onClick={logout} to='/' className='btn'>
-            Logout
-          </Link>
-          <Link to='/create-event' className='btn btn-event'>
-            Create event
-          </Link>
-          <Link to='/profile/verify-number' className='btn btn-profile'>
-            Profile
-          </Link>
         </div>
       </div>
     </div>
