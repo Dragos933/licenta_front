@@ -1,0 +1,24 @@
+.connect-container {
+  height: 75%;
+  margin-bottom: 40px;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 30%;
+  border-radius: 20px;
+  border-top: 5px solid #9bb8d4;
+  border-left: 5px solid #9bb8d4;
+  -webkit-box-shadow: 10px -10px 0px 0px #f5d3d4;
+  -moz-box-shadow: 10px 10px 0px 0px #f5d3d4;
+  box-shadow: 55px 55px 0px 0px #f5d3d4;
+  position: relative;
+
+  .panel-info {
+    position: absolute;
+    top: -4%;
+    background-color: #bed1c5;
+    border-radius: 10px 10px 6px 6px;
+    padding: 5px 20px;
+    font-size: 24px;
+    color: #fff;
+  }
+}

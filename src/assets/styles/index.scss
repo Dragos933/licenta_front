@@ -1,11 +1,15 @@
 @import './globals.scss';
 
-@import './components/buttons.scss';
-@import './components/modals.scss';
-@import './components/footer.scss';
+@import './components/Buttons.scss';
+@import './components/Modals.scss';
+@import './components/Footer.scss';
 @import './components/LeftPanel.scss';
 @import './components/RightPanel.scss';
 @import './components/MiddlePanel.scss';
+@import './components/AboutUser.scss';
+@import './components/ConnectWithOthers.scss';
+@import './components/SyncAccount.scss';
+@import './components/ProfileButtons.scss';
 
 @import './modules/App.scss';
 @import './modules/Login.scss';
@@ -13,3 +17,4 @@
 @import './modules/ForgotPass.scss';
 @import './modules/LandingPage.scss';
 @import './modules/Home.scss';
+@import './modules/Profile.scss';

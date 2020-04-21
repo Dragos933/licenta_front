@@ -1,0 +1,50 @@
+.about-container {
+  height: 75%;
+  margin-bottom: 40px;
+  padding: 20px;
+  width: 30%;
+  box-sizing: border-box;
+  border-radius: 20px;
+  border-top: 5px solid #f5d3d4;
+  border-left: 5px solid #f5d3d4;
+  -webkit-box-shadow: 10px -10px 0px 0px #f7e2d4;
+  -moz-box-shadow: 10px 10px 0px 0px #f7e2d4;
+  box-shadow: 55px 55px 0px 0px #f7e2d4;
+  position: relative;
+
+  .panel-info {
+    position: absolute;
+    top: -4%;
+    background-color: #bed1c5;
+    border-radius: 10px 10px 6px 6px;
+    padding: 5px 20px;
+    font-size: 24px;
+    color: #fff;
+  }
+
+  .content {
+    height: 100%;
+    width: 100%;
+
+    .user-info {
+      width: 100%;
+      height: 70%;
+
+      .user-photo {
+        img {
+          width: 150px;
+        }
+      }
+    }
+
+    .tree-container {
+      width: 100%;
+      height: 30%;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  }
+}
