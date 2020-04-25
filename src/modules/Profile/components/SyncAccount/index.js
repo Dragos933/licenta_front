@@ -5,6 +5,7 @@ const SyncAccount = (props) => {
     <div className='wheater-container'>
       <div className='panel-info'>
         <p>Sync Account</p>
+        <i className='fas fa-sync' />
       </div>
       <div className='content'>
         <p className='title'>Sync your account with Google!</p>
@@ -23,6 +24,8 @@ const SyncAccount = (props) => {
         </select>
         <p className='create-title'>Create your google calendar:</p>
         <input type='text' />
+        <p className='create-title'>Sync current calendar:</p>
+        <i className='fas fa-sync sync' />
       </div>
     </div>
   );

@@ -3,35 +3,16 @@ import React from 'react';
 const MiddlePanel = (props) => {
   return (
     <div className='middle-panel panel'>
+      <div className='divider' />
       <div className='home-events'>
-        <div className='event-item'>
-          <p>Hey hey</p>
-        </div>
-        <div className='event-item'>
-          <p>Hey hey</p>
-        </div>
-        <div className='event-item'>
-          <p>Hey hey</p>
-        </div>
-        <div className='event-item'>
-          <p>Hey hey</p>
-        </div>
-        <div className='event-item'>
-          <p>Hey hey</p>
-        </div>
-        <div className='event-item'>
-          <p>Hey hey</p>
-        </div>
-        <div className='event-item'>
-          <p>Hey hey</p>
-        </div>
-        <div className='event-item'>
-          <p>Hey hey</p>
-        </div>
-        <div className='event-item'>
-          <p>Hey hey</p>
-        </div>
+        <img src='/images/Sample023.png' />
+        <img src='/images/Sample024.png' />
+        <img src='/images/Sample025.png' />
+        <img src='/images/Sample026.png' />
+        <img src='/images/Sample027.png' />
+        <img src='/images/Sample028.png' />
       </div>
+      <div className='divider' />
     </div>
   );
 };

@@ -1,3 +1,12 @@
+.wheater-container:hover {
+  transition: 1s;
+  -webkit-box-shadow: 35px 35px 0px 0px #9bb8d4;
+  -moz-box-shadow: 35px 35px 0px 0px #9bb8d4;
+  box-shadow: 35px 35px 0px 0px #9bb8d4;
+  border-top: 5px solid #fff9ba;
+  border-left: 5px solid #fff9ba;
+}
+
 .wheater-container {
   padding: 20px;
   width: 100%;
@@ -7,10 +16,11 @@
   margin-bottom: 50px;
   border-top: 5px solid #f7e2d4;
   border-left: 5px solid #f7e2d4;
-  -webkit-box-shadow: 10px -10px 0px 0px #9bb8d4;
-  -moz-box-shadow: 10px 10px 0px 0px #9bb8d4;
+  -webkit-box-shadow: 55px 55px 0px 0px #9bb8d4;
+  -moz-box-shadow: 55px 55px 0px 0px #9bb8d4;
   box-shadow: 55px 55px 0px 0px #9bb8d4;
   position: relative;
+  transition: 2s;
 
   .panel-info {
     position: absolute;
@@ -20,6 +30,13 @@
     padding: 5px 20px;
     font-size: 24px;
     color: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    i {
+      margin-left: 20px;
+    }
   }
 
   .content {
@@ -45,7 +62,7 @@
     }
 
     .google-btn {
-      background-color: #e76f6f;
+      background-color: #9bb8d4;
       padding: 5px 10px;
       border-radius: 10px;
       width: 55%;
@@ -53,11 +70,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-sizing: border-box;
 
       i {
         color: #fff;
         border-right: 1px solid #fff;
-        padding-right: 20px;
+        padding-right: 10px;
       }
 
       p {
@@ -110,10 +128,29 @@
       border-radius: 10px;
       padding: 4px 10px;
       color: #fff;
+      width: 55%;
+      box-sizing: border-box;
+      margin-bottom: 15px;
     }
 
     input:hover {
       cursor: pointer;
+    }
+
+    .sync {
+      color: #fff;
+      background-color: #9bb8d4;
+      padding: 5px;
+      font-size: 30px;
+      border-radius: 20px;
+      transition: 0.5s;
+    }
+
+    .sync:hover {
+      padding: 5px;
+
+      transition: 0.5s;
+      transform: rotateZ(180deg);
     }
   }
 }

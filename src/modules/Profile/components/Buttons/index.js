@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Buttons = (props) => {
   return (
     <div className='buttons-container'>
-      <ul>
-        <li>Home</li>
-        <li>Events</li>
-        <li>Logout</li>
-      </ul>
+      <Link to='/home'>Home</Link>
+      <Link to='/events'>Events</Link>
+      <Link to='/'>Logout</Link>
     </div>
   );
 };

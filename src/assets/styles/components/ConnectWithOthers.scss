@@ -1,3 +1,12 @@
+.connect-container:hover {
+  transition: 1s;
+  -webkit-box-shadow: 35px 35px 0px 0px #f5d3d4;
+  -moz-box-shadow: 35px 35px 0px 0px #f5d3d4;
+  box-shadow: 35px 35px 0px 0px #f5d3d4;
+  border-top: 5px solid #a8d2e0;
+  border-left: 5px solid #a8d2e0;
+}
+
 .connect-container {
   height: 75%;
   margin-bottom: 40px;
@@ -7,10 +16,11 @@
   border-radius: 20px;
   border-top: 5px solid #9bb8d4;
   border-left: 5px solid #9bb8d4;
-  -webkit-box-shadow: 10px -10px 0px 0px #f5d3d4;
-  -moz-box-shadow: 10px 10px 0px 0px #f5d3d4;
+  -webkit-box-shadow: 55px 55px 0px 0px #f5d3d4;
+  -moz-box-shadow: 55px 55px 0px 0px #f5d3d4;
   box-shadow: 55px 55px 0px 0px #f5d3d4;
   position: relative;
+  transition: 2s;
 
   .panel-info {
     position: absolute;
@@ -20,5 +30,88 @@
     padding: 5px 20px;
     font-size: 24px;
     color: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    i {
+      margin-left: 20px;
+    }
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .connect-text {
+      font-size: 20px;
+      padding: 20px;
+      text-align: center;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    .invite-friend {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 50px;
+
+      input {
+        border: none;
+        border-bottom: 1px solid #777;
+        padding: 5px 10px;
+        outline: none;
+        color: #777;
+      }
+
+      p {
+        background-color: #f5d3d4;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 20px;
+        margin-top: 20px;
+      }
+
+      p:hover {
+        cursor: pointer;
+      }
+    }
+
+    .connection-text {
+      color: #777;
+      margin-bottom: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .connections {
+      width: 65%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-wrap: wrap;
+
+      .connection-item-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        border: 1px solid #f7f7f7;
+        border-radius: 20px;
+        margin-right: 10px;
+        margin-bottom: 20px;
+        padding: 20px;
+
+        i {
+          font-size: 68px;
+          margin-bottom: 20px;
+          color: #777;
+        }
+      }
+    }
   }
 }

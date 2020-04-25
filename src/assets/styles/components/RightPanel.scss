@@ -3,6 +3,8 @@
 
   .home-calendar:hover {
     transition: 1s;
+    -webkit-box-shadow: 35px 35px 0px 0px #9bb8d4;
+    -moz-box-shadow: 35px 35px 0px 0px #9bb8d4;
     box-shadow: 35px 35px 0px 0px #9bb8d4;
     border-top: 5px solid #fff9ba;
     border-left: 5px solid #fff9ba;
@@ -36,6 +38,7 @@
       -moz-box-shadow: 10px 10px 0px 0px #e8e8e8;
       box-shadow: 10px 10px 0px 0px #e8e8e8;
       transition: 0.5s;
+      margin-right: 100px;
     }
 
     .btn-profile {

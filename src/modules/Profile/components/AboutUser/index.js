@@ -5,11 +5,13 @@ const AboutUser = (props) => {
     <div className='about-container'>
       <div className='panel-info'>
         <p>My Details</p>
+        <i className='far fa-user-circle' />
       </div>
       <div className='content'>
         <div className='user-info'>
           <div className='user-photo'>
             <img src='/images/forgotPassword.jpg' alt='UserImage' />
+            <p>Change profile picture</p>
           </div>
         </div>
         <div className='tree-container'>
