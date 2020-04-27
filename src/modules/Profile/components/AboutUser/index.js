@@ -13,6 +13,15 @@ const AboutUser = (props) => {
             <img src='/images/forgotPassword.jpg' alt='UserImage' />
             <p>Change profile picture</p>
           </div>
+          <div className='user-data'>
+            <input name='First-name' type='text' placeholder='First-name' />
+            <input name='Last-name' type='text' placeholder='Last-name' />
+            <input name='E-mail' type='text' placeholder='E-mail' />
+            <input name='Phone' type='text' placeholder='Phone' />
+            <input name='Age' type='text' placeholder='Age' />
+            <input name='Address' type='text' placeholder='Address' />
+            <input name='Description' type='text' placeholder='Description' />
+          </div>
         </div>
         <div className='tree-container'>
           <img src='/images/tree.jpg' alt='Tree' />

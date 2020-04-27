@@ -33,10 +33,10 @@
       box-sizing: border-box;
       text-decoration: none;
       margin-top: 20px;
-      background-color: #9bb8d4;
-      -webkit-box-shadow: 10px 10px 0px 0px #e8e8e8;
-      -moz-box-shadow: 10px 10px 0px 0px #e8e8e8;
-      box-shadow: 10px 10px 0px 0px #e8e8e8;
+      background-color: #bed1c5;
+      -webkit-box-shadow: 10px 10px 0px 0px #f8efc1;
+      -moz-box-shadow: 10px 10px 0px 0px #f8efc1;
+      box-shadow: 10px 10px 0px 0px #f8efc1;
       transition: 0.5s;
       margin-right: 100px;
     }
@@ -51,11 +51,11 @@
 
     .btn:hover {
       transition: 0.5s;
-      background-color: #9bb8d4;
+      background-color: #bed1c5;
       color: #fff;
-      -webkit-box-shadow: 20px 20px 0px 0px #e8e8e8;
-      -moz-box-shadow: 20px 20px 0px 0px #e8e8e8;
-      box-shadow: 20px 20px 0px 0px #e8e8e8;
+      -webkit-box-shadow: 20px 20px 0px 0px #f8efc1;
+      -moz-box-shadow: 20px 20px 0px 0px #f8efc1;
+      box-shadow: 20px 20px 0px 0px #f8efc1;
     }
 
     @keyframes borders {

@@ -6,6 +6,7 @@ import Register from './modules/Register/reducer';
 import ForgotPassword from './modules/ForgotPassword/reducer';
 import VerifyNumber from './modules/VerifyNumber/reducer';
 import Profile from './modules/Profile/reducer';
+import CreateEvent from './modules/CreateEvent/reducer';
 
 export default combineReducers({
   routing: routerReducer,
@@ -13,5 +14,6 @@ export default combineReducers({
   Register,
   ForgotPassword,
   VerifyNumber,
-  Profile
+  Profile,
+  CreateEvent
 });

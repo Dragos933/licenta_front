@@ -1,0 +1,14 @@
+.create-event-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  .extra {
+    height: 100px;
+    width: 100%;
+  }
+
+  .content {
+  }
+}

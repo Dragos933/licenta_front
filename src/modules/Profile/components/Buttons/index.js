@@ -5,7 +5,7 @@ const Buttons = (props) => {
   return (
     <div className='buttons-container'>
       <Link to='/home'>Home</Link>
-      <Link to='/events'>Events</Link>
+      <Link to='/create-event'>Create events</Link>
       <Link to='/'>Logout</Link>
     </div>
   );

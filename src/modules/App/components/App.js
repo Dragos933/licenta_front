@@ -10,6 +10,7 @@ import LandingPage from '../../LandingPage/containers/LandingPageContainer';
 import Home from '../../Home/containers/HomeContainer';
 import VerifyNumber from '../../VerfiyNumber/containers/VerifyNumberContainer';
 import Profile from '../../Profile/containers/ProfileContainer';
+import CreateEvent from '../../CreateEvent/containers/CreateEventContainer';
 
 const PrivateRoute = ({ component: Component, ...others }) => {
   return (
@@ -37,6 +38,7 @@ export default class App extends Component {
             path='/profile/verify-number'
             component={VerifyNumber}
           />
+          <PrivateRoute exact path='/create-event' component={CreateEvent} />
         </main>
       </Router>
     );

@@ -52,6 +52,7 @@
         justify-content: flex-start;
         align-items: center;
         margin-top: 10px;
+        margin-bottom: 30px;
 
         img {
           width: 150px;
@@ -67,6 +68,44 @@
         p:hover {
           cursor: pointer;
         }
+      }
+
+      .user-data {
+        height: 260px;
+        overflow-y: scroll;
+        margin-left: 10px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+
+        input {
+          outline: none;
+          padding: 5px 15px;
+          font-size: 16px;
+          display: inline-block;
+          margin-bottom: 40px;
+          border: none;
+          border-bottom: 1px solid #777;
+          width: 65%;
+        }
+
+        textarea {
+          resize: none;
+          height: 50px;
+        }
+      }
+
+      ::-webkit-scrollbar {
+        display: block !important;
+        width: 2px !important;
+        background: #e8e8e8 !important;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, 0.5);
+        height: 10px;
       }
     }
 

@@ -104,14 +104,14 @@ const RightPanel = (props) => {
         </div>
       </div>
       <div className='buttons'>
-        <Link onClick={logout} to='/' className='btn'>
-          Logout
+        <Link to='/profile' className='btn btn-profile'>
+          Profile
         </Link>
         <Link to='/create-event' className='btn btn-event'>
           Create event
         </Link>
-        <Link to='/profile' className='btn btn-profile'>
-          Profile
+        <Link onClick={logout} to='/' className='btn'>
+          Logout
         </Link>
       </div>
     </div>

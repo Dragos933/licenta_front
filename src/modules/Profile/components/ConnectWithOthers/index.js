@@ -19,10 +19,23 @@ const ConnectWithOthers = (props) => {
         </div>
         <p className='connection-text'>Your connections</p>
         <div className='connections'>
-          <ConnectionItem name='Cornean Vlad' />
-          <ConnectionItem name='Valeriu Vlad' />
-          <ConnectionItem name='Abusan Sebi' />
-          <ConnectionItem name='Malina Vlad' />
+          <ConnectionItem
+            first_name='Cornean'
+            last_name='Vlad'
+            user_photo='/images/CatPhotoSample.jpg'
+          />
+          <ConnectionItem
+            name='Valeriu Vlad'
+            user_photo='/images/CatPhotoSample2.jpg'
+          />
+          <ConnectionItem
+            name='Abusan Sebi'
+            user_photo='/images/CatPhotoSample3.jpg'
+          />
+          <ConnectionItem
+            name='Malina Vlad'
+            user_photo='/images/CatPhotoSample4.jpg'
+          />
         </div>
       </div>
     </div>

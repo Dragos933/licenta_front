@@ -9,26 +9,27 @@
   flex-direction: column;
 
   a {
-    width: 100%;
+    width: 110%;
     text-align: center;
-    background-color: #9bb8d4;
+    background-color: #bed1c5;
     padding: 10px;
     box-sizing: border-box;
     border-radius: 20px;
     color: #fff;
     -webkit-box-shadow: 10px 10px 0px 0px #e8e8e8;
     -moz-box-shadow: 10px 10px 0px 0px #e8e8e8;
-    box-shadow: 10px 10px 0px 0px #e8e8e8;
+    box-shadow: 10px 10px 0px 0px rgb(248, 239, 193);
     transition: 1s;
     margin-bottom: 20px;
+    margin-left: 50px;
   }
 
   a:hover {
     transition: 0.5s;
-    background-color: #9bb8d4;
+    background-color: #bed1c5;
     color: #fff;
     -webkit-box-shadow: 20px 20px 0px 0px #e8e8e8;
     -moz-box-shadow: 20px 20px 0px 0px #e8e8e8;
-    box-shadow: 20px 20px 0px 0px #e8e8e8;
+    box-shadow: 20px 20px 0px 0px #f2e9b4;
   }
 }
