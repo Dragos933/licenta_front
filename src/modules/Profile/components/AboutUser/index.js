@@ -24,7 +24,7 @@ const AboutUser = (props) => {
           </div>
         </div>
         <div className='tree-container'>
-          <img src='/images/tree.jpg' alt='Tree' />
+          <img src='/images/TreeLvl5.png' alt='Tree' />
         </div>
       </div>
     </div>

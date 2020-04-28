@@ -5,7 +5,6 @@ const MiddlePanel = (props) => {
     <div className='middle-panel panel'>
       <div className='divider' />
       <div className='home-events'>
-        <img src='/images/Sample023.png' />
         <img src='/images/Sample024.png' />
         <img src='/images/Sample025.png' />
         <img src='/images/Sample026.png' />
