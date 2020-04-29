@@ -9,10 +9,14 @@ const CreateEvent = (props) => {
         <h1 className='event-title'>Choose event type:</h1>
         <div className='event-options'>
           <div className='option'>
-            <h1>Cleaning Event</h1>
+            <img src='/images/Planting01.jpg' alt='Planting' />
+            <div className='filter' />
+            <p className='planting'>Planting Event</p>
           </div>
           <div className='option'>
-            <h1>Planting Event</h1>
+            <img src='/images/Recycling03.jpg' alt='Recycling img' />
+            <div className='filter' />
+            <p>Cleaning Event</p>
           </div>
         </div>
       </div>
