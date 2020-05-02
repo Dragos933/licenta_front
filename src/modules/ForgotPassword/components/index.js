@@ -9,7 +9,7 @@ const ForgotPassword = (props) => {
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState([]);
   const serverError = props.errors;
-  const hasSubmitted = props.hasSubmitted;
+  const { hasSubmitted } = props;
 
   const onChange = (e) => {
     setEmail(e.target.value);
@@ -46,48 +46,50 @@ const ForgotPassword = (props) => {
   return (
     <div className='login-container forgot-pass-container'>
       <div className='extra' />
-      {
-        !hasSubmitted
-        ? <Toast className='forgot-toast' toastMsg='Error!' errors={hasError()} />
-        : null
-      }
-      {
-        !hasSubmitted
-        ?<div className={`login ${hasSubmitted ? 'submitted' : ''}`}>
-        <h1 className='component-title forgot-title'>Forgot Password</h1>
-        <p className='forgot-descr'>
-          We will send you an email with a reset password link.
-        </p>
-        <form onChange={onChange} className='login-form forgot-form'>
-          <label
-            htmlFor='email'
-            className={`login-label forgot-label ${
-              errors.length > 0 ? 'error-label' : ''
-            }`}>
-            Email
-            <i
-              className={`fas fa-exclamation-circle error-icon ${
-                errors.length === 0 ? 'hide' : ''
+      {!hasSubmitted ? (
+        <Toast className='forgot-toast' toastMsg='Error!' errors={hasError()} />
+      ) : null}
+      {!hasSubmitted ? (
+        <div className={`login ${hasSubmitted ? 'submitted' : ''}`}>
+          <h1 className='component-title forgot-title'>Forgot Password</h1>
+          <p className='forgot-descr'>
+            We will send you an email with a reset password link.
+          </p>
+          <form onChange={onChange} className='login-form forgot-form'>
+            <label
+              htmlFor='email'
+              className={`login-label forgot-label ${
+                errors.length > 0 ? 'error-label' : ''
               }`}>
-              <ErrorModal errors={errors} className='auth-error-modal' />
-            </i>
-          </label>
-          <input
-            type='text'
-            name='email'
-            className={`login-input ${errors.length > 0 ? 'error-input' : ''}`}
+              Email
+              <i
+                className={`fas fa-exclamation-circle error-icon ${
+                  errors.length === 0 ? 'hide' : ''
+                }`}>
+                <ErrorModal errors={errors} className='auth-error-modal' />
+              </i>
+            </label>
+            <input
+              type='text'
+              name='email'
+              className={`login-input ${
+                errors.length > 0 ? 'error-input' : ''
+              }`}
+            />
+          </form>
+          <AuthButton
+            onClick={(e) => onSubmit(e)}
+            buttonTxt='Send email'
+            className='login-btn basic-btn forgot-btn'
+            disabled={isDisabled()}
           />
-        </form>
-        <AuthButton
-          onClick={(e) => onSubmit(e)}
-          buttonTxt='Send email'
-          className='login-btn basic-btn forgot-btn'
-          disabled={isDisabled()}
-        />
-      </div>
-        : <p className="forgot-success">We've send you and email with the reset link!</p>
-      }
-      
+        </div>
+      ) : (
+        <p className='forgot-success'>
+          We've send you and email with the reset link!
+        </p>
+      )}
+
       <img alt='Login' src='/images/ForgotPassword.jpg' />
       <Link to='/register' className='nav-reg nav-item'>
         Register

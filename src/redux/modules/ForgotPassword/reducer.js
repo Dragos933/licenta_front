@@ -4,7 +4,7 @@ const initialState = () => {
   const token = localStorage.getItem('auth_token') || '';
   return {
     data: {
-      hasSubmitted: false,
+      hasSubmitted: false
     },
     apiStatus: {
       pending: false,
@@ -33,14 +33,14 @@ export default (state = initialState(), action = {}) => {
         ...state,
         data: {
           ...state.data,
-          hasSubmitted: true,
+          hasSubmitted: true
         },
         apiStatus: {
           pending: false,
           success: true,
           error: false
         },
-        errors: [],
+        errors: []
       };
     }
 

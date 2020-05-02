@@ -74,13 +74,13 @@ const resetPassword = async (data) => {
     method: 'POST',
     url: `${path}/auth/reset-password`,
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
-    data,
+    data
   })
-  .then(response => response)
-  .catch(error => error);
-}
+    .then((response) => response)
+    .catch((error) => error);
+};
 
 const returnError = (error) => {
   return error.response.data.message[0].messages[0].message;

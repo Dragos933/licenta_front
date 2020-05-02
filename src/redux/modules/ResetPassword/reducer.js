@@ -3,7 +3,7 @@ import * as types from './types';
 const initialState = () => {
   return {
     data: {
-      hasSubmitted: false,
+      hasSubmitted: false
     },
     apiStatus: {
       pending: false,
@@ -16,7 +16,6 @@ const initialState = () => {
 
 export default (state = initialState(), action = {}) => {
   switch (action.type) {
-
     default:
       return state;
   }

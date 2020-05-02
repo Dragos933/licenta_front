@@ -2,24 +2,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ResetPassword from '../components/index';
 
-import {
+import {} from '../../../redux/modules/ResetPassword/actions';
 
-} from '../../../redux/modules/ResetPassword/actions';
+import {} from '../../../redux/modules/ResetPassword/selectors';
 
-import {
+const mapActionToProps = (dispatch) => bindActionCreators({}, dispatch);
 
-} from '../../../redux/modules/ResetPassword/selectors';
-
-const mapActionToProps = (dispatch) =>
-  bindActionCreators(
-    {
-
-    },
-    dispatch
-  );
-
-const mapStateToProps = (state) => ({
-
-});
+const mapStateToProps = (state) => ({});
 
 export default connect(mapStateToProps, mapActionToProps)(ResetPassword);

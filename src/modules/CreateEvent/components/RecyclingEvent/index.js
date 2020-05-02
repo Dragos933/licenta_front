@@ -10,6 +10,6 @@ const RecyclingEvent = (props) => {
       <p>Cleaning Event</p>
     </div>
   );
-}
+};
 
 export default RecyclingEvent;

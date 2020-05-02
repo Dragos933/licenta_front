@@ -20,10 +20,10 @@
     flex-direction: column;
 
     h1 {
-      font-size: 42px;
+      font-size: 32px;
       color: #333;
       font-weight: bold;
-      margin-bottom: 70px;
+      margin-bottom: 30px;
     }
 
     .event-options {
@@ -42,6 +42,7 @@
         align-items: center;
         flex-direction: column;
         left: 35%;
+        outline: none;
 
         a {
           color: #333;
@@ -51,7 +52,7 @@
           left: 0;
           width: 400px;
           border: none;
-          background-color: #BED1C5;
+          background-color: #bed1c5;
           padding: 10px;
           border-radius: 20px;
           color: #fff;
@@ -147,36 +148,78 @@
         flex-direction: column;
         padding: 20px;
         box-sizing: border-box;
-        border-top: 5px solid #F7E2D4;
-        border-left: 5px solid #F7E2D4;
+        border-top: 5px solid #f7e2d4;
+        border-left: 5px solid #f7e2d4;
         -webkit-box-shadow: 55px 55px 0px 0px #9bb8d4;
         -moz-box-shadow: 55px 55px 0px 0px #9bb8d4;
         box-shadow: 55px 55px 0px 0px #9bb8d4;
         position: relative;
 
-        input, textarea, .photo {
-          animation: input-appear 2s forwards ease-out;
-        }
+        .content {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          flex-direction: column;
+          overflow-y: scroll;
 
-        input, textarea {
-          border: none;
-          border-bottom: 1px solid #333;
-        }
+          .error-input {
+            border-bottom: 1px solid #ff3d0d;
+          }
 
-        @keyframes input-appear {
-          0% {
-            opacity: 0;
-            transform: translateX(5%);
+          .error-input::placeholder {
+            color: #ff3d0d;
           }
-  
-          75% {
-            opacity: 0;
-            transform: translateX(5%);
+
+          .error-area {
+            border: 1px solid #ff3d0d;
           }
-  
-          100% {
-            opacity: 1;
-            transform: translateX(0);
+
+          .error-area::placeholder {
+            color: #ff3d0d;
+          }
+
+          input,
+          textarea,
+          .photo {
+            animation: input-appear 2s forwards ease-out;
+          }
+
+          input {
+            border: none;
+            border-bottom: 1px solid #333;
+          }
+
+          input,
+          textarea {
+            padding: 5px 10px;
+            width: 95%;
+            margin-bottom: 20px;
+            outline: none;
+          }
+
+          textarea {
+            resize: none;
+            border: 1px solid #333;
+            height: 100px;
+          }
+
+          @keyframes input-appear {
+            0% {
+              opacity: 0;
+              transform: translateX(5%);
+            }
+
+            75% {
+              opacity: 0;
+              transform: translateX(5%);
+            }
+
+            100% {
+              opacity: 1;
+              transform: translateX(0);
+            }
           }
         }
 
@@ -188,7 +231,7 @@
           left: 0;
           width: 100%;
           border: none;
-          background-color: #BED1C5;
+          background-color: #bed1c5;
           padding: 10px;
           border-radius: 20px;
           color: #fff;
@@ -197,6 +240,7 @@
           -moz-box-shadow: 10px 10px 0px 0px #f2e9b4;
           box-shadow: 10px 10px 0px 0px #f2e9b4;
           transition: 1s;
+          outline: none;
         }
 
         .planting-btn:hover {
@@ -249,8 +293,8 @@
       }
 
       .recycling-form {
-        border-top: 5px solid #F7E2D4;
-        border-right: 5px solid #F7E2D4;
+        border-top: 5px solid #f7e2d4;
+        border-right: 5px solid #f7e2d4;
         border-left: none;
         -webkit-box-shadow: 55px 55px 0px 0px #9bb8d4;
         -moz-box-shadow: 55px 55px 0px 0px #9bb8d4;

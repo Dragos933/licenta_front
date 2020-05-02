@@ -5,7 +5,7 @@ const initialState = () => {
   return {
     data: {
       token,
-      hasSubmitted: false,
+      hasSubmitted: false
     },
     apiStatus: {
       pending: false,
@@ -42,10 +42,10 @@ export default (state = initialState(), action = {}) => {
         apiStatus: {
           ...state.apiStatus,
           pending: false,
-          error: true,
+          error: true
         },
-        errors: [...state.errors, 'Invalid credentials!'],
-      }
+        errors: [...state.errors, 'Invalid credentials!']
+      };
 
     case types.LOGIN_SUCCESS:
       return {
@@ -54,13 +54,13 @@ export default (state = initialState(), action = {}) => {
           ...state.apiStatus,
           pending: false,
           error: false,
-          success: true,
+          success: true
         },
         data: {
           ...state.data,
-          hasSubmitted: true,
+          hasSubmitted: true
         }
-      }
+      };
 
     default:
       return state;

@@ -8,6 +8,14 @@ export const days = () => {
 
 export const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-export const RecyclingImages = ['/images/Recycling04.jpg', '/images/Recycling03.jpg', '/images/Recycling05.jpg'];
+export const RecyclingImages = [
+  '/images/Recycling04.jpg',
+  '/images/Recycling03.jpg',
+  '/images/Recycling05.jpg'
+];
 
-export const PlantingImages = ['/images/PlantingTree02.jpg', '/images/Planting01.jpg', '/images/Register.jpg'];
+export const PlantingImages = [
+  '/images/PlantingTree02.jpg',
+  '/images/Planting01.jpg',
+  '/images/Register.jpg'
+];

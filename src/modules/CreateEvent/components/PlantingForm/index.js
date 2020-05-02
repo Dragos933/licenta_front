@@ -1,27 +1,87 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const PlantingForm = (props) => {
-  const { onClickCancel } = props;
+  const { onClickCancel, onSubmit } = props;
+  const [formData, setFormData] = useState({
+    location: '',
+    noPeople: '',
+    noTrees: '',
+    typeTree: '',
+    description: ''
+  });
+  const [errors, setErrors] = useState([]);
+
+  const onChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const validate = () => {
+    const validatedForm = Object.keys(formData).filter(
+      (item) => formData[item].length === 0
+    );
+    setErrors(validatedForm);
+    return validatedForm.length === 0;
+  };
+
+  const onClickSubmit = () => {
+    if (validate(formData)) {
+      onSubmit(formData);
+    }
+  };
 
   return (
     <div className='option planting-form'>
       <h1>Planting Form</h1>
-      <div className="content">
-        <input placeholder="Location"></input>
-        <textarea placeholder="Description"></textarea>
-        <textarea placeholder="Requirements"></textarea>
-        <div className="photo-container">
-          <p></p>
-          <div className="photo before">
-            <i className="fas fa-plus"></i>
-          </div>
-        </div>
-        <div className="photo before"><i className="fas fa-plus"></i></div>
+      <div className='content'>
+        <input
+          name='location'
+          onChange={onChange}
+          className={`location ${
+            errors.includes('location') ? 'error-input' : ''
+          }`}
+          placeholder='Location (mandatory)'
+        />
+        <input
+          name='noPeople'
+          onChange={onChange}
+          className={`${errors.includes('noPeople') ? 'error-input' : ''}`}
+          placeholder='Number of people needed (mandatory)'
+        />
+        <input
+          name='noTrees'
+          onChange={onChange}
+          className={`${errors.includes('noTrees') ? 'error-input' : ''}`}
+          placeholder='Minimum number of trees needed (mandatory)'
+        />
+        <input
+          name='typeTree'
+          onChange={onChange}
+          className={`${errors.includes('typeTree') ? 'error-input' : ''}`}
+          placeholder='Type of tree (mandatory)'
+        />
+        <textarea
+          name='description'
+          onChange={onChange}
+          className={`${errors.includes('description') ? 'error-area' : ''}`}
+          placeholder='Description (mandatory)'
+        />
+        <textarea
+          name='requirements'
+          onChange={onChange}
+          placeholder='Requirements (optional)'
+        />
       </div>
-      <button onClick={onClickCancel} className="planting-btn submit-btn">Submit</button>
-      <button onClick={onClickCancel} className="planting-btn">Cancel</button>
+      <button onClick={onClickSubmit} className='planting-btn submit-btn'>
+        Submit
+      </button>
+      <button onClick={onClickCancel} className='planting-btn'>
+        Cancel
+      </button>
     </div>
   );
-}
+};
 
 export default PlantingForm;

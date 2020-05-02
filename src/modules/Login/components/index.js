@@ -32,16 +32,14 @@ export default class Login extends React.Component {
     return (
       <div className='login-container'>
         <div className='extra' />
-        {
-          errors.length > 0
-          ?<Toast
-            className={`register-toast`}
-            toastMsg={'Error!'}
+        {errors.length > 0 ? (
+          <Toast
+            className='register-toast'
+            toastMsg='Error!'
             errors={errors.length > 0}
           />
-          : null
-        }
-        
+        ) : null}
+
         <div className='login'>
           <h1 className='component-title login-title'>Login</h1>
           <form onChange={this.onChange} className='login-form'>
@@ -54,13 +52,15 @@ export default class Login extends React.Component {
             </label>
             <input type='password' name='password' className='login-input' />
           </form>
-          {
-            errors.map((item, index) => {
-              return (
-                <p className="error-msg" key={index}>- {item}</p>
-              )
-            })
-          }
+          {errors.map((item, index) => {
+            return (
+              <p className='error-msg' key={index}>
+                - 
+                {' '}
+                {item}
+              </p>
+            );
+          })}
           <AuthButton
             onClick={(e) => this.onSubmit(e)}
             buttonTxt='Login'

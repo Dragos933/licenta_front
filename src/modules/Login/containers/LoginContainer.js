@@ -9,7 +9,7 @@ import {
   selectPassword,
   selectApiStatus,
   selectHasSubmitted,
-  selectErrors,
+  selectErrors
 } from '../../../redux/modules/Login/selectors';
 
 const mapActionToProps = (dispatch) =>
@@ -26,7 +26,7 @@ const mapStateToProps = (state) => ({
   password: selectPassword(state),
   apiStatus: selectApiStatus(state),
   hasSubmitted: selectHasSubmitted(state),
-  errors: selectErrors(state),
+  errors: selectErrors(state)
 });
 
 export default connect(mapStateToProps, mapActionToProps)(Login);

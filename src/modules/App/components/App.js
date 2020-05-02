@@ -32,7 +32,7 @@ export default class App extends Component {
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
           <Route exact path='/forgot-password' component={ForgotPassword} />
-          <Route exact path='/reset-password' component={ResetPassword}/>
+          <Route exact path='/reset-password' component={ResetPassword} />
           <PrivateRoute exact path='/profile' component={Profile} />
           <PrivateRoute exact path='/home' component={Home} />
           <PrivateRoute
