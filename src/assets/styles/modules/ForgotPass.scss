@@ -1,5 +1,33 @@
+.forgot-success {
+  font-size: 24px;
+  color: #555;
+  animation: appear-forgot 1s forwards ease;
+}
+
+@keyframes appear-forgot {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .login {
   background: transparent !important;
+  animation: disappear 1s forwards ease;
+
+  @keyframes disappear {
+    0% {
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0;
+    }
+  }
+
   .forgot-title {
     margin-top: 50px;
     color: #50d5b7;

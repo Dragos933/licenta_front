@@ -1,23 +1,62 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Footer from '../../../components/footer/index';
+import PlantingEvent from './PlantingEvent/index';
+import RecyclingEvent from './RecyclingEvent';
+import PlantingForm from './PlantingForm/';
+import RecyclingForm from './RecyclingForm';
+import { Link } from 'react-router-dom';
 
 const CreateEvent = (props) => {
+  const [eventType, setEventType] = useState('');
+
+  const onClickEvent = (type) => {
+    setEventType(type);
+  }
+
+  const onClickCancel = () => {
+    setEventType('');
+  }
+
+  const renderContent = () => {
+    switch (eventType) {
+      case 'recycling':
+        return (
+          <>
+            <RecyclingForm onClickCancel={onClickCancel} />
+            <i className="fas fa-arrow-left event-arrow"></i>
+            <RecyclingEvent onClick={onClickEvent} />
+          </>
+        )
+      case 'planting':
+        return (
+          <>
+            <PlantingEvent onClick={onClickEvent} />
+            <i className="fas fa-arrow-right event-arrow"></i>
+            <PlantingForm onClickCancel={onClickCancel} />
+          </>
+        )
+      default:
+        return (
+          <>
+            <PlantingEvent onClick={onClickEvent} />
+            <RecyclingEvent onClick={onClickEvent} />
+            <div className="event-buttons">
+              <Link to="/home">Home</Link>
+              <Link to="/profile" className="profile">Profile</Link>
+            </div>
+          </>
+        )
+        
+    }
+  }
+
   return (
     <div className='create-event-container'>
-      <div className='extra' />
       <div className='content'>
-        <h1 className='event-title'>Choose event type:</h1>
         <div className='event-options'>
-          <div className='option'>
-            <img src='/images/Planting01.jpg' alt='Planting' />
-            <div className='filter' />
-            <p className='planting'>Planting Event</p>
-          </div>
-          <div className='option'>
-            <img src='/images/Recycling03.jpg' alt='Recycling img' />
-            <div className='filter' />
-            <p>Cleaning Event</p>
-          </div>
+          {
+            renderContent()
+          }
         </div>
       </div>
       <Footer />

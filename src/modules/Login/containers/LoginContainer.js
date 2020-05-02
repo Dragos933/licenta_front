@@ -7,7 +7,9 @@ import { setField, login } from '../../../redux/modules/Login/actions';
 import {
   selectEmail,
   selectPassword,
-  selectApiStatus
+  selectApiStatus,
+  selectHasSubmitted,
+  selectErrors,
 } from '../../../redux/modules/Login/selectors';
 
 const mapActionToProps = (dispatch) =>
@@ -22,7 +24,9 @@ const mapActionToProps = (dispatch) =>
 const mapStateToProps = (state) => ({
   email: selectEmail(state),
   password: selectPassword(state),
-  apiStatus: selectApiStatus(state)
+  apiStatus: selectApiStatus(state),
+  hasSubmitted: selectHasSubmitted(state),
+  errors: selectErrors(state),
 });
 
 export default connect(mapStateToProps, mapActionToProps)(Login);

@@ -84,9 +84,22 @@
 
   img {
     position: absolute;
-    left: 0;
+    left: 5%;
     top: 45%;
     width: 500px;
+    animation: appear 1s forwards ease;
+  }
+
+  @keyframes appear {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
   }
 
   .nav-item {

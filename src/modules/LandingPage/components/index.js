@@ -11,15 +11,12 @@ export default class LandingPage extends React.Component {
   render() {
     return (
       <div className='landing-container'>
-        <h1 className='landing-title'>Let's Clean Romania!</h1>
+        <h1 className='landing-title'>Make Romania Green!</h1>
         <img
           className='landing-img'
           alt='LandingPage'
           src='/images/LandingPage.jpg'
         />
-        <Link id='nav-hom' className='landing-nav' to='/home'>
-          Hoome
-        </Link>
         <Link id='nav-reg' className='landing-nav' to='/register'>
           Register
         </Link>

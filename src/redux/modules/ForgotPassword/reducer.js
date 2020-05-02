@@ -4,7 +4,7 @@ const initialState = () => {
   const token = localStorage.getItem('auth_token') || '';
   return {
     data: {
-      token
+      hasSubmitted: false,
     },
     apiStatus: {
       pending: false,
@@ -31,11 +31,16 @@ export default (state = initialState(), action = {}) => {
     case types.SEND_EMAIL_SUCCESS: {
       return {
         ...state,
+        data: {
+          ...state.data,
+          hasSubmitted: true,
+        },
         apiStatus: {
           pending: false,
           success: true,
           error: false
-        }
+        },
+        errors: [],
       };
     }
 
@@ -47,7 +52,7 @@ export default (state = initialState(), action = {}) => {
           success: false,
           error: true
         },
-        errors: [...state.errors, action.payload]
+        errors: [action.payload]
       };
     }
 

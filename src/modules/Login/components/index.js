@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import AuthButton from '../../../components/buttons/authButton';
 import Footer from '../../../components/footer/index';
+import Toast from '../../../components/toasts/index';
 
 export default class Login extends React.Component {
   onChange = (e) => {
@@ -17,10 +18,6 @@ export default class Login extends React.Component {
       email: this.props.email,
       password: this.props.password
     });
-    this.setState({
-      isSubmited: true
-    });
-    this.props.history.push('/home');
   };
 
   isDisabled = ({ email, password }) => {
@@ -31,9 +28,20 @@ export default class Login extends React.Component {
   };
 
   render() {
+    const { errors } = this.props;
     return (
       <div className='login-container'>
         <div className='extra' />
+        {
+          errors.length > 0
+          ?<Toast
+            className={`register-toast`}
+            toastMsg={'Error!'}
+            errors={errors.length > 0}
+          />
+          : null
+        }
+        
         <div className='login'>
           <h1 className='component-title login-title'>Login</h1>
           <form onChange={this.onChange} className='login-form'>
@@ -46,6 +54,13 @@ export default class Login extends React.Component {
             </label>
             <input type='password' name='password' className='login-input' />
           </form>
+          {
+            errors.map((item, index) => {
+              return (
+                <p className="error-msg" key={index}>- {item}</p>
+              )
+            })
+          }
           <AuthButton
             onClick={(e) => this.onSubmit(e)}
             buttonTxt='Login'

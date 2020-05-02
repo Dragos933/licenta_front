@@ -4,7 +4,8 @@ const initialState = () => {
   const token = localStorage.getItem('auth_token') || '';
   return {
     data: {
-      token
+      token,
+      hasSubmitted: false,
     },
     apiStatus: {
       pending: false,
@@ -34,6 +35,33 @@ export default (state = initialState(), action = {}) => {
           pending: true
         }
       };
+
+    case types.LOGIN_ERROR:
+      return {
+        ...state,
+        apiStatus: {
+          ...state.apiStatus,
+          pending: false,
+          error: true,
+        },
+        errors: [...state.errors, 'Invalid credentials!'],
+      }
+
+    case types.LOGIN_SUCCESS:
+      return {
+        ...state,
+        apiStatus: {
+          ...state.apiStatus,
+          pending: false,
+          error: false,
+          success: true,
+        },
+        data: {
+          ...state.data,
+          hasSubmitted: true,
+        }
+      }
+
     default:
       return state;
   }

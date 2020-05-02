@@ -69,6 +69,19 @@ const forgotPassword = async (data) => {
     });
 };
 
+const resetPassword = async (data) => {
+  return await axios({
+    method: 'POST',
+    url: `${path}/auth/reset-password`,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data,
+  })
+  .then(response => response)
+  .catch(error => error);
+}
+
 const returnError = (error) => {
   return error.response.data.message[0].messages[0].message;
 };
@@ -80,5 +93,6 @@ export default {
   createTree,
   sendEmail,
   updateFirstRegister,
-  forgotPassword
+  forgotPassword,
+  resetPassword
 };

@@ -8,6 +8,23 @@
   height: 100vh;
   position: relative;
 
+  .error-reset-pass {
+    color: #ff3e0e;
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-top: -20px;
+  }
+
+  .register-toast {
+    position: absolute;
+    right: 15%;
+    top: 28%;
+    background-color: #ff3e0e;
+    color: #fff;
+    padding: 5px 20px;
+    border-radius: 20px 0px 0px 20px;
+  }
+
   .extra {
     height: 100px;
     width: 100%;
@@ -17,6 +34,7 @@
     position: absolute;
     left: 0;
     top: 40%;
+    animation: appear 1s forwards ease;
   }
 
   .nav-item {
@@ -83,6 +101,12 @@
       100% {
         transform: translateY(15px);
       }
+    }
+
+    .error-msg {
+      margin-top: -20px;
+      margin-bottom: 20px;
+      color: #ff3e0e;
     }
 
     .login-title {

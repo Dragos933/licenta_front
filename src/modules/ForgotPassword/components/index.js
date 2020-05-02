@@ -8,6 +8,8 @@ import Toast from '../../../components/toasts/index';
 const ForgotPassword = (props) => {
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState([]);
+  const serverError = props.errors;
+  const hasSubmitted = props.hasSubmitted;
 
   const onChange = (e) => {
     setEmail(e.target.value);
@@ -38,14 +40,20 @@ const ForgotPassword = (props) => {
   };
 
   const hasError = () => {
-    return errors.length > 0;
+    return errors.length > 0 || serverError.length > 0;
   };
 
   return (
     <div className='login-container forgot-pass-container'>
       <div className='extra' />
-      <Toast className='forgot-toast' toastMsg='Error!' errors={hasError()} />
-      <div className='login'>
+      {
+        !hasSubmitted
+        ? <Toast className='forgot-toast' toastMsg='Error!' errors={hasError()} />
+        : null
+      }
+      {
+        !hasSubmitted
+        ?<div className={`login ${hasSubmitted ? 'submitted' : ''}`}>
         <h1 className='component-title forgot-title'>Forgot Password</h1>
         <p className='forgot-descr'>
           We will send you an email with a reset password link.
@@ -77,6 +85,9 @@ const ForgotPassword = (props) => {
           disabled={isDisabled()}
         />
       </div>
+        : <p className="forgot-success">We've send you and email with the reset link!</p>
+      }
+      
       <img alt='Login' src='/images/ForgotPassword.jpg' />
       <Link to='/register' className='nav-reg nav-item'>
         Register

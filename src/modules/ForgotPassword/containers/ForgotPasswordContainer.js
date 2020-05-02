@@ -4,7 +4,10 @@ import ForgotPassword from '../components/index';
 
 import { sendEmail } from '../../../redux/modules/ForgotPassword/actions';
 
-import {} from '../../../redux/modules/ForgotPassword/selectors';
+import {
+  selectErrors,
+  selectHasSubmitted,
+} from '../../../redux/modules/ForgotPassword/selectors';
 
 const mapActionToProps = (dispatch) =>
   bindActionCreators(
@@ -14,6 +17,9 @@ const mapActionToProps = (dispatch) =>
     dispatch
   );
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  errors: selectErrors(state),
+  hasSubmitted: selectHasSubmitted(state),
+});
 
 export default connect(mapStateToProps, mapActionToProps)(ForgotPassword);
