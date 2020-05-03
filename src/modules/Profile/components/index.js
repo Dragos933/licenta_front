@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { getWheaterData } from '../../../api/profile';
-import { formatWheaterData } from '../../../utils/wheater';
+import React from 'react';
 import Footer from '../../../components/footer/index';
 import SyncAccount from './SyncAccount';
 import ConnectWithOthers from './ConnectWithOthers';
 import AboutUser from './AboutUser';
 import Buttons from './Buttons';
 
-const Profile = (props) => {
+const Profile = () => {
   return (
     <div className='profile'>
       <div className='profile-container'>

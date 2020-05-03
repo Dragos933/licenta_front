@@ -43,7 +43,5 @@ export const getWheaterData = async () => {
     url: `http://api.openweathermap.org/data/2.5/forecast?id=${CITY_ID}&appid=${WHEATER_TOKEN}`
   })
     .then((response) => response)
-    .catch((error) => {
-      throw new Error('- Wheater data could not be retrieved!');
-    });
+    .catch((error) => error);
 };
