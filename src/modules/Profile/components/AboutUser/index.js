@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const AboutUser = (props) => {
   return (
@@ -17,7 +18,12 @@ const AboutUser = (props) => {
             <input name='First-name' type='text' placeholder='First-name' />
             <input name='Last-name' type='text' placeholder='Last-name' />
             <input name='E-mail' type='text' placeholder='E-mail' />
-            <input name='Phone' type='text' placeholder='Phone' />
+            <input disabled name='Phone' type='text' placeholder='Phone' />
+            <Link to='/profile/verify-mobile' className='verify-mobile'>
+              Verify mobile 
+              {' '}
+              <i className='fas fa-arrow-right' />
+            </Link>
             <input name='Age' type='text' placeholder='Age' />
             <input name='Address' type='text' placeholder='Address' />
             <input name='Description' type='text' placeholder='Description' />

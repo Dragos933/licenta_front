@@ -44,7 +44,7 @@ export default (state = initialState(), action = {}) => {
           pending: false,
           error: true
         },
-        errors: [...state.errors, 'Invalid credentials!']
+        errors: ['Invalid credentials!']
       };
 
     case types.LOGIN_SUCCESS:

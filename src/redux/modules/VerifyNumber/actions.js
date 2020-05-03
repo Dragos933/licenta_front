@@ -1,5 +1,6 @@
 import * as ac from './actionCreators';
 import * as api from '../../../api/profile';
+import history from '../../../history';
 
 export const sendCode = (phone) => async (dispatch) => {
   dispatch(ac.asyncSendCode.pending());
@@ -15,10 +16,9 @@ export const verifyCode = (code) => async (dispatch, getState) => {
   dispatch(ac.asyncVerifyCode.pending());
   try {
     const { phone } = getState().VerifyNumber.data;
-    const res = await api.verifyNumber({ phone, code });
+    const res = await api.verifyCode({ phone, code });
     dispatch(ac.asyncVerifyCode.success(res));
-    this.props.history.push('/home');
-    window.location.href = '/home';
+    history.push('/profile');
   } catch (error) {
     dispatch(ac.asyncVerifyCode.error(error.message));
   }

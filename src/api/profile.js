@@ -1,6 +1,6 @@
 const axios = require('axios').default;
 
-const path = 'http://localhost:1337/profiles';
+const path = 'http://localhost:1337/connections';
 
 const WHEATER_TOKEN = 'ab24dd3525e8157e54a6f47c82e1f668';
 const CITY_ID = '681290';
@@ -8,7 +8,7 @@ const CITY_ID = '681290';
 export const verifyNumber = async (data) => {
   return axios({
     method: 'POST',
-    url: `${path}/verify-number`,
+    url: `${path}/send-code`,
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`,
       'Content-Type': 'application/json'
@@ -24,7 +24,7 @@ export const verifyNumber = async (data) => {
 export const verifyCode = async (data) => {
   return axios({
     method: 'POST',
-    url: `${path}/validate-number`,
+    url: `${path}/verify-code`,
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`,
       'Content-Type': 'application/json'

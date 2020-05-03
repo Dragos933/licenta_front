@@ -28,7 +28,7 @@ const PlantingForm = (props) => {
 
   const onClickSubmit = () => {
     if (validate(formData)) {
-      onSubmit(formData);
+      onSubmit(formData, 'Planting');
     }
   };
 

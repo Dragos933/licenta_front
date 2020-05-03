@@ -30,12 +30,6 @@ const VerifyNumber = (props) => {
     } else {
       props.unregisterError('- Phone number is too short!');
     }
-    if (!phone.match(/^\d+$/)) {
-      c++;
-      props.registerError('- Invalid phone number!');
-    } else {
-      props.unregisterError('- Invalid phone number!');
-    }
     return c;
   };
 
@@ -136,14 +130,11 @@ const VerifyNumber = (props) => {
         )}
       </div>
       <img alt='Login' src='/images/ForgotPassword.jpg' />
-      <Link to='/register' className='nav-reg nav-item'>
-        Register
+      <Link to='/profile' className='nav-reg nav-item'>
+        Profile
       </Link>
-      <Link to='/' className='nav-lan nav-item'>
+      <Link to='/home' className='nav-lan nav-item'>
         Home
-      </Link>
-      <Link to='/login' className='nav-pas nav-item'>
-        Login
       </Link>
       <Footer />
     </div>

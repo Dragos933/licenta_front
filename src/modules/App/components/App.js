@@ -37,7 +37,7 @@ export default class App extends Component {
           <PrivateRoute exact path='/home' component={Home} />
           <PrivateRoute
             exact
-            path='/profile/verify-number'
+            path='/profile/verify-mobile'
             component={VerifyNumber}
           />
           <PrivateRoute exact path='/create-event' component={CreateEvent} />

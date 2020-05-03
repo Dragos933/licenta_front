@@ -78,6 +78,7 @@
         justify-content: flex-start;
         align-items: center;
         flex-direction: column;
+        position: relative;
 
         input {
           outline: none;
@@ -88,6 +89,26 @@
           border: none;
           border-bottom: 1px solid #777;
           width: 65%;
+        }
+
+        .verify-mobile {
+          position: absolute;
+          top: 83%;
+          font-size: 12px;
+          color: #9bb8d4;
+          right: 18%;
+
+          i {
+            margin-left: 5px;
+          }
+        }
+
+        .verify-mobile:hover {
+          cursor: pointer;
+        }
+
+        input:disabled {
+          background-color: #fff;
         }
 
         textarea {
