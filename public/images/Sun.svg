@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="62px" height="62px" viewBox="0 0 62 62" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.3 (7891) - http://www.bohemiancoding.com/sketch -->
+    <title>Sun</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Sun" sketch:type="MSLayerGroup" stroke="#6B6C6E" stroke-width="2">
+            <circle id="Oval" sketch:type="MSShapeGroup" cx="31" cy="31" r="17"></circle>
+            <path d="M31,51 L31,62" id="Shape" sketch:type="MSShapeGroup"></path>
+            <path d="M31,0 L31,11" id="Shape" sketch:type="MSShapeGroup"></path>
+            <path d="M11,31 L0,31" id="Shape" sketch:type="MSShapeGroup"></path>
+            <path d="M62,31 L51,31" id="Shape" sketch:type="MSShapeGroup"></path>
+            <path d="M16.6,45.4 L9.1,52.9" id="Shape" sketch:type="MSShapeGroup"></path>
+            <path d="M52.9,9.1 L45.4,16.6" id="Shape" sketch:type="MSShapeGroup"></path>
+            <path d="M45.4,45.4 L52.9,52.9" id="Shape" sketch:type="MSShapeGroup"></path>
+            <path d="M9.1,9.1 L16.6,16.6" id="Shape" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

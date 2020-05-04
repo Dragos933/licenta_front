@@ -4,24 +4,11 @@ import LeftPanel from './LeftPanel/index';
 import MiddlePanel from './MiddlePanel/index';
 import RightPanel from './RightPanel/index';
 import { days, weekDays } from '../../../utils/constants';
-import { getWheaterData } from '../../../api/profile';
 import { formatWheaterData } from '../../../utils/wheater';
 
 const Home = (props) => {
   const [weatherData, setWheaterData] = useState({});
   const [errors, setErrors] = useState([]);
-
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const wData = await getWheaterData();
-        setWheaterData(formatWheaterData(wData));
-      } catch (error) {
-        setErrors([...errors, error]);
-      }
-    };
-    getData();
-  }, [errors]);
 
   return (
     <div className='home-container'>

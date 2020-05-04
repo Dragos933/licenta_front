@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="51px" height="63px"
+	 viewBox="0 0 51 63" enable-background="new 0 0 51 63" xml:space="preserve">
+<title>Calendar</title>
+<desc>Created with Sketch.</desc>
+<g id="Page-1" sketch:type="MSPage">
+	<g id="Calendar" transform="translate(1.000000, 1.000000)" sketch:type="MSLayerGroup">
+		<path id="Shape_3_" sketch:type="MSShapeGroup" fill="none" stroke="#6B6C6E" stroke-width="2" d="M9.2,4.9H2c-1.1,0-2,0.9-2,2v52
+			c0,1.1,0.9,2,2,2h44.9c1.1,0,2-0.9,2-2v-52c0-1.1-0.9-2-2-2h-9.2"/>
+		<path id="Shape" sketch:type="MSShapeGroup" fill="none" stroke="#6B6C6E" stroke-width="2" stroke-linejoin="round" d="
+			M12.8,31.2l6.2-5.6V50"/>
+		<path id="Shape_1_" sketch:type="MSShapeGroup" fill="none" stroke="#6B6C6E" stroke-width="2" d="M33,47c0,1.5-0.3,2-1.9,2h-6.2
+			c-1.6,0-1.9-0.5-1.9-2V28c0-1.5,0.3-2,1.9-2h6.2c1.6,0,1.9,0.4,1.9,2V47L33,47z"/>
+		<path id="Shape_2_" sketch:type="MSShapeGroup" fill="none" stroke="#6B6C6E" stroke-width="2" d="M32.6,4.9H15.3"/>
+		<path id="Shape_4_" sketch:type="MSShapeGroup" fill="none" stroke="#6B6C6E" stroke-width="2" d="M5.1,14.1h38.8"/>
+		
+			<rect id="Rectangle-path" x="10" sketch:type="MSShapeGroup" fill="none" stroke="#6B6C6E" stroke-width="2" width="5.1" height="9">
+		</rect>
+		
+			<rect id="Rectangle-path_1_" x="32" sketch:type="MSShapeGroup" fill="none" stroke="#6B6C6E" stroke-width="2" width="5.1" height="9">
+		</rect>
+	</g>
+</g>
+</svg>
