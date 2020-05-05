@@ -48,10 +48,11 @@
         align-items: flex-start;
         flex-direction: column;
         padding: 10px 10px;
+        margin-top: 10px;
 
         .info-label {
-          font-size: 12px;
-          color: #b3b3b3;
+          font-size: 14px;
+          color: #777;
           font-weight: bold;
           margin-bottom: 5px;
         }
@@ -66,7 +67,7 @@
     }
 
     .user-description-label {
-      color: #b3b3b3;
+      color: #777;
       font-size: 18px;
       font-weight: bold;
       align-self: flex-start;
@@ -85,7 +86,7 @@
     }
 
     .left-panel-content {
-      margin-top: 20px;
+      margin-top: 40px;
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -96,6 +97,18 @@
         color: #555;
         font-weight: bold;
         margin-bottom: 20px;
+        border: none;
+        background: #fff;
+        font-size: 16px;
+        outline: none;
+        padding: 3px 10px;
+      }
+
+      .weather-btn:hover {
+        cursor: pointer;
+        background-color: #e8e8e8;
+        color: #fff;
+        border-radius: 20px;
       }
 
       .weather-container {

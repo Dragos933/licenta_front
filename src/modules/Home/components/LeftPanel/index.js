@@ -1,6 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import WeatherItem from '../../../../components/wheaterItem/index';
+import {
+  getWeatherDataAPI,
+  getWeatherDataDB,
+  createWeatherData
+} from '../../../../api/home';
+import { formatWeatherData } from '../../../../utils/wheater';
 
 const LeftPanel = (props) => {
   const {
@@ -10,10 +16,35 @@ const LeftPanel = (props) => {
     description = "Hi! My name is Dragos. Hope we will participate in as many events as we can. Let's connect and clean Romania!"
   } = props;
 
+  const [weatherData, setWeatherData] = useState([]);
+  const [errors, setErrors] = useState([]);
+
+  useEffect(() => {
+    const getDataDB = async () => {
+      try {
+        const res = await getWeatherDataDB();
+        setWeatherData(res.data);
+      } catch (error) {
+        setErrors(error);
+      }
+    };
+    getDataDB();
+  }, []);
+
   const getWeatherDate = (days) => {
     return moment()
       .add('days', days)
       .format('DD/MM');
+  };
+
+  const getWData = async () => {
+    try {
+      const res = await getWeatherDataAPI();
+      const formatedData = formatWeatherData(res.data.forecast.forecastday);
+      await createWeatherData(formatedData);
+    } catch (error) {
+      setErrors(error);
+    }
   };
 
   return (
@@ -35,11 +66,32 @@ const LeftPanel = (props) => {
           {description || 'No descriptiona available :('}
         </p>
         <div className='left-panel-content'>
-          <p className='weather-btn'>Weather</p>
+          <button onClick={getWData} className='weather-btn'>
+            Weather
+          </button>
           <div className='weather-container'>
-            <WeatherItem day_icon='light' date={getWeatherDate(0)} />
-            <WeatherItem day_icon='cloud' date={getWeatherDate(1)} />
-            <WeatherItem day_icon='rain' date={getWeatherDate(2)} />
+            {weatherData.length === 3 ? (
+              <>
+                <WeatherItem
+                  day_icon={weatherData[2].day_type}
+                  temp={weatherData[2].temp}
+                  date={getWeatherDate(0)}
+                  wind={weatherData[2].wind_speed}
+                />
+                <WeatherItem
+                  day_icon={weatherData[1].day_type}
+                  temp={weatherData[1].temp}
+                  date={getWeatherDate(1)}
+                  wind={weatherData[1].wind_speed}
+                />
+                <WeatherItem
+                  day_icon={weatherData[0].day_type}
+                  temp={weatherData[0].temp}
+                  date={getWeatherDate(2)}
+                  wind={weatherData[0].wind_speed}
+                />
+              </>
+            ) : null}
           </div>
         </div>
       </div>

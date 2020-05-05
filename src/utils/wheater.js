@@ -1,18 +1,28 @@
 import moment from 'moment';
 
-export const formatWheaterData = (wheaterData) => {
-  return wheaterData.map((item) => {
+const getDayType = (icon_code) => {
+  const code = parseInt(icon_code.split('/day/')[1].split('.')[0], 10);
+  if (code === 113) {
+    return 'sunny';
+  }
+  if (code === 116) {
+    return 'sun-cloudy';
+  }
+  if (code >= 119 && code <= 143) {
+    return 'cloudy';
+  }
+  if (code > 143) {
+    return 'rainy';
+  }
+};
+
+export const formatWeatherData = (weatherData) => {
+  return weatherData.map((item) => {
     return {
-      hour: moment(item.dt * 1000).format('DD MMM YYYY HH:MM:SS'),
-      wind: item.wind,
-      weather: item.weather[0],
-      data: {
-        ...item.main,
-        feels_like: parseFloat((item.main.feels_like - 273.15).toFixed(2), 10),
-        temp: parseFloat((item.main.temp - 273.15).toFixed(2), 10),
-        temp_max: parseFloat((item.main.temp_max - 273.15).toFixed(2), 10),
-        temp_min: parseFloat((item.main.temp_min - 273.15).toFixed(2), 10)
-      }
+      date: item.date,
+      temp: item.day.avgtemp_c,
+      wind_speed: item.day.maxwind_kph,
+      day_type: getDayType(item.day.condition.icon)
     };
   });
 };

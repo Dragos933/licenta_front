@@ -5,11 +5,11 @@ const WeatherItem = (props) => {
 
   const getIcon = (day) => {
     switch (day) {
-      case 'light':
+      case 'sunny':
         return '/images/Sun.svg';
-      case 'rain':
+      case 'rainy':
         return '/images/Weather-cloud-rain.svg';
-      case 'cloud':
+      case 'cloudy':
         return '/images/Cloud.svg';
       default:
         return null;
