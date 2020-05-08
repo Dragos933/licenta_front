@@ -11,6 +11,8 @@ const WeatherItem = (props) => {
         return '/images/Weather-cloud-rain.svg';
       case 'cloudy':
         return '/images/Cloud.svg';
+      case 'sun-cloudy':
+        return '/images/Weather-cloud-sun.svg';
       default:
         return null;
     }

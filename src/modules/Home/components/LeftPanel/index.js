@@ -1,23 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import moment from 'moment';
 import WeatherItem from '../../../../components/wheaterItem/index';
 import {
   getWeatherDataAPI,
   getWeatherDataDB,
-  createWeatherData
+  createWeatherData,
+  getUserData,
 } from '../../../../api/home';
 import { formatWeatherData } from '../../../../utils/wheater';
 
 const LeftPanel = (props) => {
-  const {
-    name = 'No Namer',
-    level = 1,
-    email = 'dragoscornean@yahoo.com',
-    description = "Hi! My name is Dragos. Hope we will participate in as many events as we can. Let's connect and clean Romania!"
-  } = props;
-
   const [weatherData, setWeatherData] = useState([]);
   const [errors, setErrors] = useState([]);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     const getDataDB = async () => {
@@ -25,10 +20,23 @@ const LeftPanel = (props) => {
         const res = await getWeatherDataDB();
         setWeatherData(res.data);
       } catch (error) {
-        setErrors(error);
+        setErrors([...errors, error]);
       }
     };
     getDataDB();
+  }, []);
+
+  useEffect(() => {
+    const getMyData = async () => {
+      try {
+        const { id: userId } = JSON.parse(localStorage.getItem('user'));
+        const res = await getUserData(userId);
+        setUser(res.data);
+      } catch (error) {
+        setErrors([...errors, error])
+      }
+    };
+    getMyData();
   }, []);
 
   const getWeatherDate = (days) => {
@@ -43,7 +51,7 @@ const LeftPanel = (props) => {
       const formatedData = formatWeatherData(res.data.forecast.forecastday);
       await createWeatherData(formatedData);
     } catch (error) {
-      setErrors(error);
+      setErrors([...errors, error]);
     }
   };
 
@@ -54,16 +62,16 @@ const LeftPanel = (props) => {
           <img src='/images/ForgotPassword.jpg' alt='User' />
           <div className='user-info'>
             <p className='info-label'>Name</p>
-            <p className='info'>{name}</p>
+            <p className='info'>{`${user.first_name} ${user.last_name}`}</p>
             <p className='info-label'>Level</p>
-            <p className='info'>{level}</p>
+            <p className='info'>{`${user.tree ? user.tree.level : ''}`}</p>
             <p className='info-label'>E-mail</p>
-            <p className='info'>{email}</p>
+            <p className='info'>{user.email}</p>
           </div>
         </div>
         <p className='user-description-label'>This is me:</p>
         <p className='user-description'>
-          {description || 'No descriptiona available :('}
+          {user.description || 'No descriptiona available :('}
         </p>
         <div className='left-panel-content'>
           <button onClick={getWData} className='weather-btn'>

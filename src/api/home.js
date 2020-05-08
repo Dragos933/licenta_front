@@ -43,3 +43,31 @@ export const createWeatherData = (data) => {
       throw new Error(error);
     });
 };
+
+export const getUserData = (userId) => {
+  return axios({
+    method: 'GET',
+    url: `http://localhost:1337/users/${userId}`,
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+  })
+  .then((response) => response)
+    .catch((error) => {
+      throw new Error(error);
+    });
+}
+
+export const getUserInvitations = (userId) => {
+  return axios({
+    method: 'GET',
+    url: `http://localhost:1337/invitations?user.id=${userId}`,
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+  })
+  .then((response) => response)
+    .catch((error) => {
+      throw new Error(error);
+    });
+}
