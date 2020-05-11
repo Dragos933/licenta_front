@@ -4,30 +4,127 @@ import LeftPanel from './LeftPanel/index';
 import MiddlePanel from './MiddlePanel/index';
 import RightPanel from './RightPanel/index';
 import { days, weekDays } from '../../../utils/constants';
-import { formatWheaterData } from '../../../utils/wheater';
+import moment from 'moment';
+import { getUserInvitations, getUserApplications, getUserEvents, getCalendarData } from '../../../api/home';
+import EventsModal from '../../../components/eventsModal';
+
+const formatData = (data, title) => {
+  return data.map(item => {
+    return ({
+      title: title === 'Event' ? `${item.event_type} Event` : title,
+      date: item.date || item.date_open,
+      location: item.location,
+      status: item.status,
+      event_id: item.event ? item.event.id : item.id,
+    });
+  });
+}
+
+const formatDays = (data) => {
+  const dates = [];
+
+  data.filter(item => {
+    if (!dates.includes(item.date_open)) {
+      return dates.push(item.date_open);
+    }
+  })
+  const toReturn = [];
+  for (let i = 0; i < dates.length; i++) {
+    let str = '';
+    data.map(item => {
+      const { location } = item.planting_event || item.recycling_event;
+      if (item.date_open === dates[i]) {
+        str += `${item.id}|${item.event_type}|${location}|${item.status}|${item.date_open};`;
+        // str += item.id + ',' + item.event_type, + ',' + location + ',' + item.status + ';';
+      }
+      return null;
+    });
+    toReturn.push(str.slice(0, str.length - 1));
+  }
+  return toReturn;
+}
 
 const Home = (props) => {
-  const [weatherData, setWheaterData] = useState({});
+
+  const [user] = useState(JSON.parse(localStorage.getItem('user')));
+  const [data, setData] = useState([]);
+  const [calendarData, setCalendarData] = useState([]);
   const [errors, setErrors] = useState([]);
+  const [displayDate, setDisplayDate] = useState(moment(new Date()));
+  const [isOpen, setOpen] = useState(false);
+  const [selectedEvents, setSelectedEvents] = useState([]);
+
+  useEffect(() => {
+    const getAllData = async () => {
+      try {
+        const invitations = await getUserInvitations(user.id);
+        const formatedInvitations = formatData(invitations.data, 'Invitation')
+        const applications = await getUserApplications(user.id);
+        const formatedApplications = formatData(applications.data, 'Application')
+        const events = await getUserEvents(user.id);
+        const formatedEvents = formatData(events.data, 'Event');
+        setData([...formatedApplications, ...formatedInvitations, ...formatedEvents]);
+      } catch (error) {
+        setErrors(error);
+      }
+    };
+    getAllData();
+  }, []);
+
+  useEffect(() => {
+    const fillCalendar = async () => {
+      try {
+        const res = await getCalendarData(user.id, `${displayDate.get('month') < 10 ? '0' + (displayDate.get('month') + 1) : displayDate.get('month') + 1}`);
+        const formatedData = formatDays(res.data);
+        setCalendarData(formatedData);
+      } catch (error) {
+        setErrors(error);
+      }
+    };
+    fillCalendar();
+  }, [displayDate]);
+
+  const onClickEvent = (events) => {
+    setSelectedEvents(events);
+    setOpen(true);
+  }
+
+  const onClickNav = (monthValue) => {
+    setDisplayDate(moment(displayDate).add(monthValue, 'month'));
+  }
+
+  const onClickClose = () => {
+    setOpen(false);
+  }
 
   return (
     <div className='home-container'>
       <div className='panel-container'>
-        <LeftPanel name='Cornean Dragos' level={1} weatherData={weatherData} />
-        <MiddlePanel />
+        <LeftPanel />
+        <MiddlePanel
+          data={data}
+        />
         <RightPanel
           days={days}
           weekDays={weekDays}
-          selectedDaysProps={[
-            '2;pending',
-            '3;open',
-            '17;open',
-            '18;open',
-            '19;closed',
-            '6;pending'
-          ]}
+          onClickEvent={onClickEvent}
+          onClickNav={onClickNav}
+          calendarDays={calendarData}
+          displayDate={displayDate}
         />
       </div>
+      {
+        isOpen
+        ? <>
+            <EventsModal
+              onClickClose={onClickClose}
+              selectedEvents={selectedEvents}
+            />
+            <div className="events-filter"></div>
+          </>
+        : null
+      }
+      
       <Footer />
     </div>
   );

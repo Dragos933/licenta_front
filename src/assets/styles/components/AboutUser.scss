@@ -53,6 +53,17 @@
         align-items: center;
         margin-top: 10px;
         margin-bottom: 30px;
+        position: relative;
+
+        .choose-file {
+          position: absolute;
+          right: 20%;
+          opacity: 0;
+        }
+
+        .choose-file:hover {
+          cursor: pointer;  
+        }
 
         img {
           width: 150px;
@@ -80,6 +91,20 @@
         flex-direction: column;
         position: relative;
 
+        .save-btn {
+          border: none;
+          color: #fff;
+          background-color: #BED1C5;
+          font-size: 16px;
+          padding: 5px 50px;
+          border-radius: 20px;
+          outline: none;
+        }
+
+        .save-btn:hover {
+          cursor: pointer;
+        }
+
         input {
           outline: none;
           padding: 5px 15px;
@@ -89,6 +114,7 @@
           border: none;
           border-bottom: 1px solid #777;
           width: 65%;
+          color: #777;
         }
 
         .verify-mobile {
@@ -101,6 +127,17 @@
           i {
             margin-left: 5px;
           }
+
+          
+        }
+
+        .verified {
+          font-size: 24px;
+          color: #bed1c5;
+          font-weight: bold;
+          top: 80%;
+          right: 15%;
+          position: absolute;
         }
 
         .verify-mobile:hover {
@@ -135,13 +172,34 @@
       height: 30%;
       background-color: #fff;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
-      flex-direction: column;
+
+      .tree-details {
+        margin-left: 150px;
+        margin-right: 50px;
+        color: #777;
+        width: 50%;
+      }
+
+      .treeLevel1,
+      .treeLevel2,
+      .treeLevel3 {
+        width: 70px;
+      }
+
+      .treeLevel4 {
+        width: 80px;
+      }
+
+      .treeLevel5 {
+        width: 100px;
+      }
 
       img {
         margin-top: 50px;
         width: 100px;
+        margin-right: 150px;
       }
     }
   }

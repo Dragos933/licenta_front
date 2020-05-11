@@ -1,13 +1,20 @@
+.home-middle-panel {
+  font-family: 'Indie Flower', cursive;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.sync-account {
+
+}
+
 .middle-panel {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-family: 'Indie Flower', cursive;
   color: #555;
-  font-weight: bold;
-  font-size: 16px;
-  letter-spacing: 2px;
 
   .divider {
     width: 100%;

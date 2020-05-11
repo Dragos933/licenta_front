@@ -3,11 +3,8 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 const RightPanel = (props) => {
-  const { selectedDaysProps } = props;
+  const { calendarDays, onClickEvent, displayDate, onClickNav } = props;
   const { days, weekDays } = props;
-  const [today] = useState(moment(new Date()));
-  const [displayDate, setDisplayDate] = useState(today);
-  const [selectedDays, setSelectedDays] = useState([...selectedDaysProps]);
 
   const checkDayName = (day) => {
     if (day === 'Sun' || day === 'Sat') {
@@ -39,36 +36,21 @@ const RightPanel = (props) => {
         );
       }
       start++;
-      const date = moment(startOfMonth).add(start - 1, 'days');
-      if (date.weekday() === 0 || date.weekday() === 6) {
-        return (
-          <span className='day week-day' key={index}>
-            <span>{start}</span>
-          </span>
-        );
-      }
-      for (let i = 0; i < selectedDays.length; i++) {
-        if (selectedDays[i].includes(start)) {
-          const values = selectedDays[i].split(';');
-          if (values[1] === 'pending') {
-            return (
-              <span className='day pending' key={index}>
-                <span>{start}</span>
-              </span>
-            );
-          }
-          if (values[1] === 'open') {
-            return (
-              <span className='day open' key={index}>
-                <span>{start}</span>
-              </span>
-            );
-          }
+
+      for (let i = 0; i < calendarDays.length; i++) {
+        const events = calendarDays[i].split(';');
+        const date = events[0].split('|')[4];
+        const day = parseInt(date.split('-')[2], 10);
+        if (parseInt(day, 10) === start) {
+          const evLen = events;
           return (
-            <span className='day closed' key={index}>
-              <span>{start}</span>
-            </span>
-          );
+            <div key={index} className="event-container">
+              <span onClick={() => onClickEvent(events)} className='day event-day' key={index}>
+                <span>{start}</span>
+              </span>
+              <div className="event-details"><span>{`There ${evLen.length === 1 ? 'is' : 'are'} ${evLen.length} ${evLen.length === 1 ? 'event' : 'events'} today!`}</span></div>
+            </div>
+          )
         }
       }
       return (
@@ -80,7 +62,7 @@ const RightPanel = (props) => {
   };
 
   const changeDate = (monthValue) => {
-    setDisplayDate(moment(displayDate).add(monthValue, 'month'));
+    onClickNav(monthValue)
   };
 
   return (

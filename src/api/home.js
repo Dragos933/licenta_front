@@ -53,7 +53,7 @@ export const getUserData = (userId) => {
     },
   })
   .then((response) => response)
-    .catch((error) => {
+  .catch((error) => {
       throw new Error(error);
     });
 }
@@ -67,7 +67,49 @@ export const getUserInvitations = (userId) => {
     },
   })
   .then((response) => response)
-    .catch((error) => {
+  .catch((error) => {
+      throw new Error(error);
+    });
+}
+
+export const getUserApplications = (userId) => {
+  return axios({
+    method: 'GET', 
+    url: `http://localhost:1337/applications?user.id=${userId}`,
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+  })
+  .then((response) => response)
+  .catch((error) => {
+      throw new Error(error);
+    });
+}
+
+export const getUserEvents = (userId) => {
+  return axios({
+    method: 'GET',
+    url: `http://localhost:1337/events?user.id=${userId}`,
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+  })
+  .then((response) => response)
+  .catch((error) => {
+      throw new Error(error);
+    });
+}
+
+export const getCalendarData = (userId, month) => {
+  return axios({
+    method: 'GET',
+    url: `http://localhost:1337/events-month?month=${month}&_sort=date_open:ASC`,
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+  })
+  .then((response) => response)
+  .catch((error) => {
       throw new Error(error);
     });
 }

@@ -1,7 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import ConnectionItem from './ConnectionItem/index';
+import { getUserConnections } from '../../../../api/profile';
 
 const ConnectWithOthers = (props) => {
+  const [user] = useState(JSON.parse(localStorage.getItem('user')));
+  const [connections, setConnections] = useState([]);
+  const [errors, setErrors] = useState([]);
+
+  useEffect(() => {
+    const getConnections = async () => {
+      try {
+        const res = await getUserConnections(user.id);
+        setConnections(res.data);
+      } catch (error) {
+        setErrors(error);
+      }
+    }
+    getConnections();
+  }, []);
+
   return (
     <div className='connect-container'>
       <div className='panel-info'>
@@ -19,23 +36,17 @@ const ConnectWithOthers = (props) => {
         </div>
         <p className='connection-text'>Your connections</p>
         <div className='connections'>
-          <ConnectionItem
-            first_name='Cornean'
-            last_name='Vlad'
-            user_photo='/images/CatPhotoSample.jpg'
-          />
-          <ConnectionItem
-            name='Valeriu Vlad'
-            user_photo='/images/CatPhotoSample2.jpg'
-          />
-          <ConnectionItem
-            name='Abusan Sebi'
-            user_photo='/images/CatPhotoSample3.jpg'
-          />
-          <ConnectionItem
-            name='Malina Vlad'
-            user_photo='/images/CatPhotoSample4.jpg'
-          />
+          {
+            connections.map((item, index) => {
+              return (
+                <ConnectionItem
+                  first_name={item.user.first_name}
+                  last_name={item.user.last_name}
+                  user_photo={'/images/CatPhotoSample.jpg'}
+                />
+              );
+            })
+          }
         </div>
       </div>
     </div>

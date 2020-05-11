@@ -45,3 +45,53 @@ export const getWheaterData = async () => {
     .then((response) => response)
     .catch((error) => error);
 };
+
+export const getUserData = async () => {
+  return axios({
+    method: 'GET',
+    url: `http://localhost:1337/users/me`,
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+  })
+    .then((response) => response)
+    .catch((error) => error);
+}
+
+export const getUserTree = async (tree_id) => {
+  return axios({
+    method: 'GET',
+    url: `http://localhost:1337/trees/${tree_id}`,
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+  })
+    .then((response) => response)
+    .catch((error) => error);
+}
+
+export const updateUser = async (user_id, data) => {
+  return axios({
+    method: 'PUT',
+    url: `http://localhost:1337/users/${user_id}`,
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+      'Content-Type': 'application/json',
+    },
+    data,
+  })
+    .then((response) => response)
+    .catch((error) => error);
+}
+
+export const getUserConnections = async (user_id) => {
+  return axios({
+    method: 'GET',
+    url: `http://localhost:1337/connections?user.id=${user_id}`,
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+  })
+    .then((response) => response)
+    .catch((error) => error);
+}

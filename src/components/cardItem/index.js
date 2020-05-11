@@ -15,7 +15,7 @@ const CardItem = (props) => {
         <p className="title"><em>{title}</em></p>
         <div className='card-detail'>
           <p className="detail-label"><em>Location:</em></p>
-          <p className="detail-info">{location.length > 19 ? `${location.slice(0, 20)}...` : location}</p>
+          <p className="detail-info">{location.length > 15 ? `${location.slice(0, 16)}...` : location}</p>
         </div>
         <div className='card-detail'>
           <p className="detail-label"><em>Date:</em></p>

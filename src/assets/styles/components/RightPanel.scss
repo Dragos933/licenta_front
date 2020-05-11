@@ -154,17 +154,39 @@
         }
       }
 
-      .work-day {
-        span:hover {
-          background-color: #408f90;
-          transition: 0.2s;
-          color: white;
+      .event-day {
+        span {
+          background-color: rgb(247, 226, 212);
         }
       }
 
-      .pending {
-        span {
-          background-color: rgb(247, 226, 212);
+      .event-day:hover {
+        cursor: pointer;
+      }
+
+      .event-container {
+        position: relative;
+        .event-details {
+          width: 220px;
+          height: 30px;
+          display: none;
+          position: absolute;
+          top: -30px;
+          right: 50%;
+          border-radius: 10px;
+          background-color: #9BB8D4;
+          color: #fff;
+          font-size: 12px;
+          text-align: center;
+
+          span {
+            width: 100%;
+            height: 100%;
+          }
+        }
+  
+        .event-day:hover + .event-details {
+          display: block;
         }
       }
 
