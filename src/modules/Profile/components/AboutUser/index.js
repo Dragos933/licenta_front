@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getUserData, getUserTree, updateUser } from '../../../../api/profile';
-const AboutUser = (props) => {
+import ResponseToast from '../../../../components/responseToast';
 
+const AboutUser = () => {
   const [userData, setUserData] = useState({});
   const [errors, setErrors] = useState([]);
+  const [success, setSuccess] = useState(false);
   const [tree, setTree] = useState({});
 
   useEffect(() => {
@@ -21,7 +23,13 @@ const AboutUser = (props) => {
     getUser();
   }, []);
 
+  const resetToastState = () => {
+    setErrors([]);
+    setSuccess(false);
+  }
+
   const onChange = (e) => {
+    resetToastState();
     setUserData({
       ...userData,
       [e.target.name]: e.target.value,
@@ -30,7 +38,11 @@ const AboutUser = (props) => {
   
   const saveUserData = async () => {
     try {
-      await updateUser(userData.id, userData);
+      resetToastState();
+      const res = await updateUser(userData.id, userData);
+      if (res.status === 200) {
+        setSuccess(true);
+      }
     } catch (error) {
       setErrors(error);
     }
@@ -38,6 +50,15 @@ const AboutUser = (props) => {
 
   return (
     <div className='about-container'>
+      {
+        errors.length > 0 || success
+        ? <ResponseToast
+            type={success ? 'success' : 'error'}
+            message={!success ? errors[0] : 'Data updated successfully.'}
+            className="connection-toast"
+          />
+        : null
+      }
       <div className='panel-info'>
         <p>My Details</p>
         <i className='far fa-user-circle' />

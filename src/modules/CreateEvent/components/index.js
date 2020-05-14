@@ -11,6 +11,7 @@ import {
   createCleaningEvent,
   createPlantingEvent
 } from '../../../api/createEvent';
+import ResponseToast from '../../../components/responseToast';
 
 const CreateEvent = (props) => {
   const [eventType, setEventType] = useState('');
@@ -26,6 +27,7 @@ const CreateEvent = (props) => {
   };
 
   const onSubmitForm = async (formData, type) => {
+    setHasSubmitted(false);
     const res = await createEvent({
       status: 'Open',
       event_type: type,
@@ -108,6 +110,15 @@ const CreateEvent = (props) => {
 
   return (
     <div className='create-event-container'>
+      {
+        errors.length > 0 || hasSubmitted
+        ? <ResponseToast
+            type={hasSubmitted ? 'success' : 'error'}
+            message={!hasSubmitted ? errors[0] : 'Event created successfully.'}
+            className="create-event-toast"
+          />
+        : null
+      }
       <div className='content'>
         <div className='event-options'>{renderContent()}</div>
       </div>

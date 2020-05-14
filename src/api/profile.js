@@ -1,9 +1,11 @@
+import CustomErrors from '../utils/errors'
 const axios = require('axios').default;
 
 const path = 'http://localhost:1337/connections';
 
 const WHEATER_TOKEN = 'ab24dd3525e8157e54a6f47c82e1f668';
 const CITY_ID = '681290';
+;
 
 export const verifyNumber = async (data) => {
   return axios({
@@ -84,14 +86,43 @@ export const updateUser = async (user_id, data) => {
     .catch((error) => error);
 }
 
-export const getUserConnections = async (user_id) => {
+export const getUserConnections = (user_id) => {
   return axios({
     method: 'GET',
-    url: `http://localhost:1337/connections?user.id=${user_id}`,
+    url: `http://localhost:1337/connections?user.id=${user_id}&status=Accepted`,
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`,
     },
   })
     .then((response) => response)
     .catch((error) => error);
+}
+
+export const createConnection = async (data) => {
+  return axios({
+    method: 'POST',
+    url: `http://localhost:1337/connections`,
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+    data
+  })
+    .then((response) => response)
+    .catch((error) => {
+      throw new CustomErrors(error.response.data.message);
+    });
+}
+
+export const getSpecificUser = async (username) => {
+  return axios({
+    method: 'GET',
+    url: `http://localhost:1337/users?username=${username}`,
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+  })
+    .then((response) => response)
+    .catch((error) => {
+      throw new CustomErrors(error.response.data.message);
+    });
 }

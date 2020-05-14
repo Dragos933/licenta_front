@@ -7,6 +7,7 @@ import { days, weekDays } from '../../../utils/constants';
 import moment from 'moment';
 import { getUserInvitations, getUserApplications, getUserEvents, getCalendarData } from '../../../api/home';
 import EventsModal from '../../../components/eventsModal';
+import { getUserConnections } from '../../../api/home';
 
 const formatData = (data, title) => {
   return data.map(item => {
@@ -35,13 +36,25 @@ const formatDays = (data) => {
       const { location } = item.planting_event || item.recycling_event;
       if (item.date_open === dates[i]) {
         str += `${item.id}|${item.event_type}|${location}|${item.status}|${item.date_open};`;
-        // str += item.id + ',' + item.event_type, + ',' + location + ',' + item.status + ';';
       }
       return null;
     });
     toReturn.push(str.slice(0, str.length - 1));
   }
   return toReturn;
+}
+
+const formatConnections = (connections) => {
+  return connections.map(item => {
+    console.log(item);
+    return ({
+      title: 'Connection',
+      user_id: item.user.id,
+      date: item.date,
+      email: item.user.email,
+      username: item.user.username,
+    });
+  });
 }
 
 const Home = (props) => {
@@ -63,7 +76,9 @@ const Home = (props) => {
         const formatedApplications = formatData(applications.data, 'Application')
         const events = await getUserEvents(user.id);
         const formatedEvents = formatData(events.data, 'Event');
-        setData([...formatedApplications, ...formatedInvitations, ...formatedEvents]);
+        const connections = await getUserConnections(user.username);
+        const formatedConnections = formatConnections(connections.data);
+        setData([...formatedApplications, ...formatedInvitations, ...formatedEvents, ...formatedConnections]);
       } catch (error) {
         setErrors(error);
       }

@@ -8,11 +8,13 @@ import {
   getUserData,
 } from '../../../../api/home';
 import { formatWeatherData } from '../../../../utils/wheater';
+import ResponseToast from '../../../../components/responseToast';
 
 const LeftPanel = (props) => {
   const [weatherData, setWeatherData] = useState([]);
   const [errors, setErrors] = useState([]);
   const [user, setUser] = useState({});
+  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     const getDataDB = async () => {
@@ -45,18 +47,36 @@ const LeftPanel = (props) => {
       .format('DD/MM');
   };
 
+  const resetToastState = () => {
+    setErrors([]);
+    setSuccess(false);
+  }
+
   const getWData = async () => {
     try {
+      resetToastState();
       const res = await getWeatherDataAPI();
       const formatedData = formatWeatherData(res.data.forecast.forecastday);
       await createWeatherData(formatedData);
+      if (res.status === 200) {
+        setSuccess(true);
+      }
     } catch (error) {
-      setErrors([...errors, error]);
+      setErrors([error]);
     }
   };
 
   return (
     <div className='left-panel panel'>
+      {
+        errors.length > 0 || success
+        ? <ResponseToast
+            type={success ? 'success' : 'error'}
+            message={!success ? errors[0] : 'Weather data updated successfully.'}
+            className="aboutUser-toast"
+          />
+        : null
+      }
       <div className='home-info'>
         <div className='user-photo'>
           <img src='/images/ForgotPassword.jpg' alt='User' />

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ConnectionItem = (props) => {
-  const { first_name, last_name, user_photo } = props;
+  const { first_name, user_photo } = props;
 
   return (
     <div className='connection-item-container'>
@@ -10,7 +10,7 @@ const ConnectionItem = (props) => {
       ) : (
         <i className='fas fa-user-circle' />
       )}
-      <p>{`${first_name ? `${first_name[0]}.` : ''} ${last_name}`}</p>
+      <p>{`${first_name}`}</p>
     </div>
   );
 };

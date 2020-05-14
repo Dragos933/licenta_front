@@ -34,7 +34,7 @@ const PlantingForm = (props) => {
 
   return (
     <div className='option planting-form recycling-form'>
-      <h1>Recycling Form</h1>
+      <h1>Cleaning Form</h1>
       <div className='content'>
         <input
           name='location'

@@ -113,3 +113,17 @@ export const getCalendarData = (userId, month) => {
       throw new Error(error);
     });
 }
+
+export const getUserConnections = (username) => {
+  return axios({
+    method: 'GET',
+    url: `http://localhost:1337/connections?username=${username}`,
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+  })
+  .then((response) => response)
+  .catch((error) => {
+      throw new Error(error);
+    });
+}

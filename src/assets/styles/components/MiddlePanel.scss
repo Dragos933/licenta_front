@@ -5,10 +5,6 @@
   letter-spacing: 2px;
 }
 
-.sync-account {
-
-}
-
 .middle-panel {
   display: flex;
   justify-content: center;
@@ -30,6 +26,11 @@
     justify-content: center;
     overflow: scroll;
     box-sizing: border-box;
+
+    .home-no-items {
+      font-size: 28px;
+      font-weight: 700;
+    }
 
     .event-item {
       border-top: 3px solid #f7e2d4;
