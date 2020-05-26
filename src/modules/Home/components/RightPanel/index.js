@@ -44,13 +44,22 @@ const RightPanel = (props) => {
         if (parseInt(day, 10) === start) {
           const evLen = events;
           return (
-            <div key={index} className="event-container">
-              <span onClick={() => onClickEvent(events)} className='day event-day' key={index}>
+            <div key={index} className='event-container'>
+              <span
+                onClick={() => onClickEvent(events)}
+                className='day event-day'
+                key={index}>
                 <span>{start}</span>
               </span>
-              <div className="event-details"><span>{`There ${evLen.length === 1 ? 'is' : 'are'} ${evLen.length} ${evLen.length === 1 ? 'event' : 'events'} today!`}</span></div>
+              <div className='event-details'>
+                <span>
+                  {`There ${evLen.length === 1 ? 'is' : 'are'} ${
+                  evLen.length
+                } ${evLen.length === 1 ? 'event' : 'events'} today!`}
+                </span>
+              </div>
             </div>
-          )
+          );
         }
       }
       return (
@@ -62,7 +71,7 @@ const RightPanel = (props) => {
   };
 
   const changeDate = (monthValue) => {
-    onClickNav(monthValue)
+    onClickNav(monthValue);
   };
 
   return (

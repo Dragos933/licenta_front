@@ -9,14 +9,18 @@ import RecyclingForm from './RecyclingForm';
 import {
   createEvent,
   createCleaningEvent,
-  createPlantingEvent
+  createPlantingEvent,
+  createGoogleEvent
 } from '../../../api/createEvent';
 import ResponseToast from '../../../components/responseToast';
+import { getGoogleAccount } from '../../../api/profile';
 
 const CreateEvent = (props) => {
+  const [user] = useState(JSON.parse(localStorage.getItem('user')));
   const [eventType, setEventType] = useState('');
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [errors, setErrors] = useState([]);
+  const [google, setGoogle] = useState({});
 
   const onClickEvent = (type) => {
     setEventType(type);
@@ -26,13 +30,26 @@ const CreateEvent = (props) => {
     setEventType('');
   };
 
+  useEffect(() => {
+    const getGoogle = async () => {
+      try {
+        const res = await getGoogleAccount(user.id);
+        setGoogle(res.data[0]);
+      } catch (error) {
+        setErrors(error);
+      }
+    };
+    getGoogle();
+  }, [user.id]);
+
   const onSubmitForm = async (formData, type) => {
     setHasSubmitted(false);
     const res = await createEvent({
       status: 'Open',
       event_type: type,
-      date_open: moment().format()
+      date_open: moment().format('YYYY-MM-DD')
     });
+    console.log(res);
     if (res.status === 200) {
       const { data } = res;
       if (type === 'Cleaning') {
@@ -40,6 +57,7 @@ const CreateEvent = (props) => {
           event: data.id,
           noBags: parseInt(formData.noBags, 10),
           noPeople: parseInt(formData.noPeople, 10),
+          eventDate: moment(formData.eventDate).format('YYYY-MM-DD'),
           ...formData
         });
 
@@ -53,6 +71,7 @@ const CreateEvent = (props) => {
           event: data.id,
           noTrees: parseInt(formData.noTrees, 10),
           noPeople: parseInt(formData.noPeople, 10),
+          eventDate: moment(formData.eventDate).format('YYYY-MM-DD'),
           ...formData
         });
 
@@ -62,6 +81,19 @@ const CreateEvent = (props) => {
           setErrors(plantingRes.data);
         }
       }
+      const resGoogle = await createGoogleEvent(
+        google.google_token,
+        google.calendar_id,
+        {
+          start: {
+            date: moment(formData.eventDate).format('YYYY-MM-DD')
+          },
+          end: {
+            date: moment(formData.eventDate).format('YYYY-MM-DD')
+          },
+          summary: `${type} event`
+        }
+      );
     } else {
       setErrors(res.data);
     }
@@ -110,15 +142,13 @@ const CreateEvent = (props) => {
 
   return (
     <div className='create-event-container'>
-      {
-        errors.length > 0 || hasSubmitted
-        ? <ResponseToast
-            type={hasSubmitted ? 'success' : 'error'}
-            message={!hasSubmitted ? errors[0] : 'Event created successfully.'}
-            className="create-event-toast"
-          />
-        : null
-      }
+      {errors.length > 0 || hasSubmitted ? (
+        <ResponseToast
+          type={hasSubmitted ? 'success' : 'error'}
+          message={!hasSubmitted ? errors[0] : 'Event created successfully.'}
+          className='create-event-toast'
+        />
+      ) : null}
       <div className='content'>
         <div className='event-options'>{renderContent()}</div>
       </div>

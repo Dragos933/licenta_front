@@ -7,7 +7,8 @@ const PlantingForm = (props) => {
     noPeople: '',
     noTrees: '',
     typeTree: '',
-    description: ''
+    description: '',
+    eventDate: ''
   });
   const [errors, setErrors] = useState([]);
 
@@ -55,6 +56,12 @@ const PlantingForm = (props) => {
           onChange={onChange}
           className={`${errors.includes('noTrees') ? 'error-input' : ''}`}
           placeholder='Minimum number of trees needed (mandatory)'
+        />
+        <input
+          name='eventDate'
+          onChange={onChange}
+          className={`${errors.includes('eventDate') ? 'error-input' : ''}`}
+          placeholder='Date of event: YYYY-MM-DD (mandatory)'
         />
         <input
           name='typeTree'

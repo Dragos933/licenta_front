@@ -5,7 +5,7 @@ import {
   getWeatherDataAPI,
   getWeatherDataDB,
   createWeatherData,
-  getUserData,
+  getUserData
 } from '../../../../api/home';
 import { formatWeatherData } from '../../../../utils/wheater';
 import ResponseToast from '../../../../components/responseToast';
@@ -26,7 +26,7 @@ const LeftPanel = (props) => {
       }
     };
     getDataDB();
-  }, []);
+  }, [errors]);
 
   useEffect(() => {
     const getMyData = async () => {
@@ -35,11 +35,11 @@ const LeftPanel = (props) => {
         const res = await getUserData(userId);
         setUser(res.data);
       } catch (error) {
-        setErrors([...errors, error])
+        setErrors([...errors, error]);
       }
     };
     getMyData();
-  }, []);
+  }, [errors]);
 
   const getWeatherDate = (days) => {
     return moment()
@@ -50,7 +50,7 @@ const LeftPanel = (props) => {
   const resetToastState = () => {
     setErrors([]);
     setSuccess(false);
-  }
+  };
 
   const getWData = async () => {
     try {
@@ -68,15 +68,13 @@ const LeftPanel = (props) => {
 
   return (
     <div className='left-panel panel'>
-      {
-        errors.length > 0 || success
-        ? <ResponseToast
-            type={success ? 'success' : 'error'}
-            message={!success ? errors[0] : 'Weather data updated successfully.'}
-            className="aboutUser-toast"
-          />
-        : null
-      }
+      {errors.length > 0 || success ? (
+        <ResponseToast
+          type={success ? 'success' : 'error'}
+          message={!success ? errors[0] : 'Weather data updated successfully.'}
+          className='aboutUser-toast'
+        />
+      ) : null}
       <div className='home-info'>
         <div className='user-photo'>
           <img src='/images/ForgotPassword.jpg' alt='User' />

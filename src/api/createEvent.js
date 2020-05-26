@@ -43,3 +43,17 @@ export const createCleaningEvent = async (data) => {
     .then((response) => response)
     .catch((error) => error);
 };
+
+export const createGoogleEvent = async (googleToken, calendarId, data) => {
+  return axios({
+    method: 'POST',
+    url: `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events`,
+    headers: {
+      Authorization: `Bearer ${googleToken}`,
+      'Content-Type': 'application/json'
+    },
+    data
+  })
+    .then((response) => response)
+    .catch((error) => error);
+};

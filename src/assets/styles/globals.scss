@@ -94,11 +94,11 @@ input:-webkit-autofill:active {
 }
 
 .toast-error {
-  background-color: #F65F67;
+  background-color: #f65f67;
 }
 
 .toast-success {
-  background-color: #689F65;
+  background-color: #689f65;
 }
 
 .connection-toast {
@@ -107,9 +107,21 @@ input:-webkit-autofill:active {
 }
 
 .aboutUser-toast {
-  top: 10%
+  top: 10%;
 }
 
 .create-event-toast {
   top: 5%;
+}
+
+.sync-google-toast {
+  top: -14%;
+}
+
+.selected-calendar {
+  background-color: #bed1c5;
+  color: #fff !important;
+  padding: 3px 40px;
+  border-radius: 10px;
+  height: 20px;
 }

@@ -49,81 +49,81 @@ export const getUserData = (userId) => {
     method: 'GET',
     url: `http://localhost:1337/users/${userId}`,
     headers: {
-      Authorization: `Bearer ${localStorage.getItem('token')}`,
-    },
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    }
   })
-  .then((response) => response)
-  .catch((error) => {
+    .then((response) => response)
+    .catch((error) => {
       throw new Error(error);
     });
-}
+};
 
 export const getUserInvitations = (userId) => {
   return axios({
     method: 'GET',
     url: `http://localhost:1337/invitations?user.id=${userId}`,
     headers: {
-      Authorization: `Bearer ${localStorage.getItem('token')}`,
-    },
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    }
   })
-  .then((response) => response)
-  .catch((error) => {
+    .then((response) => response)
+    .catch((error) => {
       throw new Error(error);
     });
-}
+};
 
 export const getUserApplications = (userId) => {
   return axios({
-    method: 'GET', 
+    method: 'GET',
     url: `http://localhost:1337/applications?user.id=${userId}`,
     headers: {
-      Authorization: `Bearer ${localStorage.getItem('token')}`,
-    },
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    }
   })
-  .then((response) => response)
-  .catch((error) => {
+    .then((response) => response)
+    .catch((error) => {
       throw new Error(error);
     });
-}
+};
 
 export const getUserEvents = (userId) => {
   return axios({
     method: 'GET',
     url: `http://localhost:1337/events?user.id=${userId}`,
     headers: {
-      Authorization: `Bearer ${localStorage.getItem('token')}`,
-    },
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    }
   })
-  .then((response) => response)
-  .catch((error) => {
+    .then((response) => response)
+    .catch((error) => {
       throw new Error(error);
     });
-}
+};
 
 export const getCalendarData = (userId, month) => {
   return axios({
     method: 'GET',
     url: `http://localhost:1337/events-month?month=${month}&_sort=date_open:ASC`,
     headers: {
-      Authorization: `Bearer ${localStorage.getItem('token')}`,
-    },
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    }
   })
-  .then((response) => response)
-  .catch((error) => {
+    .then((response) => response)
+    .catch((error) => {
       throw new Error(error);
     });
-}
+};
 
 export const getUserConnections = (username) => {
   return axios({
     method: 'GET',
     url: `http://localhost:1337/connections?username=${username}`,
     headers: {
-      Authorization: `Bearer ${localStorage.getItem('token')}`,
-    },
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    }
   })
-  .then((response) => response)
-  .catch((error) => {
+    .then((response) => response)
+    .catch((error) => {
       throw new Error(error);
     });
-}
+};
