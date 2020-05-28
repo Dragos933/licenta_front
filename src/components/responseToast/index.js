@@ -8,8 +8,7 @@ const ResponseToast = (props) => {
       className={`resToast-container
       ${type === 'error' ? 'toast-error' : 'toast-success'}
       ${className}`}>
-      <i
-        className={`${type === 'error' ? 'fas fa-times' : 'fas fa-check'}`} />
+      <i className={`${type === 'error' ? 'fas fa-times' : 'fas fa-check'}`} />
       <p className='toast-message'>{message}</p>
     </div>
   );

@@ -54,8 +54,8 @@ const RightPanel = (props) => {
               <div className='event-details'>
                 <span>
                   {`There ${evLen.length === 1 ? 'is' : 'are'} ${
-                  evLen.length
-                } ${evLen.length === 1 ? 'event' : 'events'} today!`}
+                    evLen.length
+                  } ${evLen.length === 1 ? 'event' : 'events'} today!`}
                 </span>
               </div>
             </div>

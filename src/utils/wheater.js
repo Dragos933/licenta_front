@@ -1,5 +1,3 @@
-import moment from 'moment';
-
 const getDayType = (icon_code) => {
   const code = parseInt(icon_code.split('/day/')[1].split('.')[0], 10);
   if (code === 113) {

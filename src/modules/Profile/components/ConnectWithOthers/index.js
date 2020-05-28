@@ -93,7 +93,7 @@ const ConnectWithOthers = () => {
               <ConnectionItem
                 key={index}
                 first_name={item.username}
-                user_photo="/images/CatPhotoSample.jpg"
+                user_photo='/images/CatPhotoSample.jpg'
               />
             );
           })}

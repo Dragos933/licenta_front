@@ -8,6 +8,7 @@ import VerifyNumber from './modules/VerifyNumber/reducer';
 import Profile from './modules/Profile/reducer';
 import CreateEvent from './modules/CreateEvent/reducer';
 import ResetPassword from './modules/ResetPassword/reducer';
+import EventPage from './modules/EventPage/reducer';
 
 export default combineReducers({
   routing: routerReducer,
@@ -17,5 +18,6 @@ export default combineReducers({
   VerifyNumber,
   Profile,
   CreateEvent,
-  ResetPassword
+  ResetPassword,
+  EventPage,
 });

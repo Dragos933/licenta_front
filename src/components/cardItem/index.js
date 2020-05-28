@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 const getRandomInt = () => {
   return Math.floor(Math.random() * (29 - 23) + 23);
@@ -20,7 +21,8 @@ const CardItem = (props) => {
     <div className='card-item'>
       <i
         onClick={() => onClickCancel(event_id)}
-        className='fas fa-times close-icon' />
+        className='fas fa-times close-icon'
+      />
       <img src={`/images/Sample0${getRandomInt()}.png`} alt='Card-item' />
       <div className='card-content'>
         {title !== 'Connection' ? (
@@ -82,7 +84,7 @@ const CardItem = (props) => {
         )}
       </div>
       <p className='see-details'>
-        <span>See details</span>
+        <Link to={`/event-page/${event_id}`}><span>See details</span></Link>
         <i className='fas fa-arrow-right' />
       </p>
     </div>

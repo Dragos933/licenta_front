@@ -80,7 +80,11 @@ const LeftPanel = (props) => {
           <img src='/images/ForgotPassword.jpg' alt='User' />
           <div className='user-info'>
             <p className='info-label'>Name</p>
-            <p className='info'>{`${user.first_name} ${user.last_name}`}</p>
+            <p className='info'>
+              {`${
+              user.first_name ? user.first_name : 'No name available'
+            } ${user.last_name ? user.last_name : ''}`}
+            </p>
             <p className='info-label'>Level</p>
             <p className='info'>{`${user.tree ? user.tree.level : ''}`}</p>
             <p className='info-label'>E-mail</p>

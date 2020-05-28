@@ -16,8 +16,7 @@ const ForgotPassword = (props) => {
   };
 
   const onSubmit = async (e) => {
-    await validate();
-    if (errors.length === 0) {
+    if (validate() === 1) {
       await props.sendEmail(email);
     }
   };
@@ -29,10 +28,12 @@ const ForgotPassword = (props) => {
       )
     ) {
       setErrors([...errors, '- Invalid email!']);
-    } else {
+      return 0;
+    } 
       errors.splice(errors.indexOf('- Invalid email!'), 1);
       setErrors(errors);
-    }
+      return 1;
+    
   };
 
   const isDisabled = () => {
@@ -42,7 +43,6 @@ const ForgotPassword = (props) => {
   const hasError = () => {
     return errors.length > 0 || serverError.length > 0;
   };
-
   return (
     <div className='login-container forgot-pass-container'>
       <div className='extra' />
@@ -77,6 +77,9 @@ const ForgotPassword = (props) => {
               }`}
             />
           </form>
+          {serverError.length !== 0 ? (
+            <p className='forgot-error-email'>The email does not exist!</p>
+          ) : null}
           <AuthButton
             onClick={(e) => onSubmit(e)}
             buttonTxt='Send email'

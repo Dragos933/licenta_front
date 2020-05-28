@@ -147,12 +147,12 @@ const AboutUser = () => {
         <div className='tree-container'>
           <div className='tree-details'>
             <p>
-Level:
-              {tree ? tree.level : ''}
+              Level:
+              {tree ? tree.level : 1}
             </p>
           </div>
           <img
-            className={`treeLevel${tree.level}`}
+            className={`treeLevel${tree ? tree.level : 1}`}
             src={`/images/TreeLvl${tree ? tree.level : 1}.png`}
             alt='Tree'
           />

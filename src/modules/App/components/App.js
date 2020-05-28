@@ -12,6 +12,7 @@ import VerifyNumber from '../../VerfiyNumber/containers/VerifyNumberContainer';
 import Profile from '../../Profile/containers/ProfileContainer';
 import CreateEvent from '../../CreateEvent/containers/CreateEventContainer';
 import ResetPassword from '../../ResetPassword/containers/ResetPasswordContainer';
+import EventPage from '../../EventPage/containers/EventPageContainers';
 
 const PrivateRoute = ({ component: Component, ...others }) => {
   return (
@@ -33,6 +34,7 @@ export default class App extends Component {
           <Route exact path='/register' component={Register} />
           <Route exact path='/forgot-password' component={ForgotPassword} />
           <Route exact path='/reset-password' component={ResetPassword} />
+          <PrivateRoute exact path='/event-page/:id' component={EventPage} />
           <PrivateRoute exact path='/profile' component={Profile} />
           <PrivateRoute exact path='/home' component={Home} />
           <PrivateRoute

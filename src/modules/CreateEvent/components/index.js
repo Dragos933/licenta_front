@@ -49,7 +49,6 @@ const CreateEvent = (props) => {
       event_type: type,
       date_open: moment().format('YYYY-MM-DD')
     });
-    console.log(res);
     if (res.status === 200) {
       const { data } = res;
       if (type === 'Cleaning') {

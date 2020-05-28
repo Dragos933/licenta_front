@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const EventsModal = (props) => {
   const { selectedEvents = [], date = '2020-05-05', onClickClose } = props;
@@ -12,18 +13,18 @@ const EventsModal = (props) => {
         return (
           <div className='events-modal-item' key={index}>
             <p>
-Status:
+              Status:
               {status}
             </p>
             <p>
-Type:
+              Type:
               {type}
             </p>
             <p>
-Location:
+              Location:
               {location}
             </p>
-            <p className='item-details'>See details</p>
+            <Link to={`/event-page/${event_id}`}><p className='item-details'>See details</p></Link>
           </div>
         );
       })}

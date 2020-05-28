@@ -9,10 +9,10 @@ import {
   getUserInvitations,
   getUserApplications,
   getUserEvents,
-  getCalendarData
-, getUserConnections } from '../../../api/home';
+  getCalendarData,
+  getUserConnections
+} from '../../../api/home';
 import EventsModal from '../../../components/eventsModal';
-
 
 const formatData = (data, title) => {
   return data.map((item) => {
@@ -104,7 +104,7 @@ const Home = (props) => {
           user.id,
           `${
             displayDate.get('month') < 10
-              ? `0${  displayDate.get('month') + 1}`
+              ? `0${displayDate.get('month') + 1}`
               : displayDate.get('month') + 1
           }`
         );

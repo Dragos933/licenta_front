@@ -51,10 +51,10 @@ const SyncAccount = () => {
             setGoogle(res.data);
           }
         } else if (googleToken) {
-            await updateGoogleCalendars(googleData.data[0].id, {
-              token: googleToken
-            });
-          }
+          await updateGoogleCalendars(googleData.data[0].id, {
+            token: googleToken
+          });
+        }
       } catch (error) {
         setErrors([error.msg]);
       }
@@ -114,8 +114,14 @@ const SyncAccount = () => {
         </p>
         <div className='google-btn'>
           <i className='fab fa-google' />
-          <a
-            href="https://accounts.google.com/o/oauth2/v2/auth?client_id=232221935946-0bo434m3mmb2gra3upag7v9a4o5lpsvj.apps.googleusercontent.com&redirect_uri=http://localhost:3000/profile&response_type=token&scope=https://www.googleapis.com/auth/calendar&include_granted_scopes=true&state=pass-through value">
+          <a href={`https://accounts.google.com/o/oauth2/v2/auth?
+            client_id=232221935946-0bo434m3mmb2gra3upag7v9a4o5lpsvj.apps.googleusercontent.com&
+            redirect_uri=http://localhost:3000/profile&
+            response_type=token&
+            scope=https://www.googleapis.com/auth/calendar&
+            include_granted_scopes=true&
+            state=pass-through value`}
+          >
             <p>Connect with google</p>
           </a>
         </div>
