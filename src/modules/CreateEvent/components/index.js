@@ -10,10 +10,11 @@ import {
   createEvent,
   createCleaningEvent,
   createPlantingEvent,
-  createGoogleEvent
+  createGoogleEvent,
 } from '../../../api/createEvent';
+import { applyToEvent } from '../../../api/eventPage';
 import ResponseToast from '../../../components/responseToast';
-import { getGoogleAccount } from '../../../api/profile';
+import { getGoogleAccount, refreshGoogleToken } from '../../../api/profile';
 
 const CreateEvent = (props) => {
   const [user] = useState(JSON.parse(localStorage.getItem('user')));
@@ -47,7 +48,7 @@ const CreateEvent = (props) => {
     const res = await createEvent({
       status: 'Open',
       event_type: type,
-      date_open: moment().format('YYYY-MM-DD')
+      date_open: moment(formData.eventDate).format('YYYY-MM-DD')
     });
     if (res.status === 200) {
       const { data } = res;
@@ -57,9 +58,9 @@ const CreateEvent = (props) => {
           noBags: parseInt(formData.noBags, 10),
           noPeople: parseInt(formData.noPeople, 10),
           eventDate: moment(formData.eventDate).format('YYYY-MM-DD'),
+          requirements: formData.requirements || '',
           ...formData
         });
-
         if (cleaningRes.status === 200) {
           setHasSubmitted(true);
         } else {
@@ -71,17 +72,18 @@ const CreateEvent = (props) => {
           noTrees: parseInt(formData.noTrees, 10),
           noPeople: parseInt(formData.noPeople, 10),
           eventDate: moment(formData.eventDate).format('YYYY-MM-DD'),
+          requirements: formData.requirements || '',
           ...formData
         });
-
         if (plantingRes.status === 200) {
           setHasSubmitted(true);
         } else {
           setErrors(plantingRes.data);
         }
       }
-      const resGoogle = await createGoogleEvent(
-        google.google_token,
+      const resfreshRes = await refreshGoogleToken(google.refresh_token);
+      await createGoogleEvent(
+        resfreshRes.data.access_token,
         google.calendar_id,
         {
           start: {
@@ -93,6 +95,13 @@ const CreateEvent = (props) => {
           summary: `${type} event`
         }
       );
+      await applyToEvent({
+        user: user.id,
+        event: res.data.id,
+        date: moment().format('YYYY-MM-DD'),
+        username: user.username,
+        status: 'Accepted',
+      })
     } else {
       setErrors(res.data);
     }

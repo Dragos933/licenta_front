@@ -126,6 +126,21 @@ export const getSpecificUser = async (username) => {
     });
 };
 
+export const getGoogleTokens = async (code) => {
+  return axios({
+    method: 'POST',
+    url: `https://oauth2.googleapis.com/token?code=${code}&client_id=232221935946-0bo434m3mmb2gra3upag7v9a4o5lpsvj.apps.googleusercontent.com&client_secret=R-kH4qPIPd7su2ayLEn1Dkh5&redirect_uri=http://localhost:3000/profile&grant_type=authorization_code`,
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+  })
+  .then((response) => response)
+  .catch((error) => {
+      throw new CustomErrors(error.response.data.message);
+    });
+}
+
 export const createGoogle = async (data) => {
   return axios({
     method: 'POST',
@@ -155,6 +170,20 @@ export const getGoogleAccount = async (user_id) => {
       throw new CustomErrors(error.response.data.message);
     });
 };
+
+export const refreshGoogleToken = async (refresh_token) => {
+  return axios({
+    method: "POST",
+    url: `https://oauth2.googleapis.com/token?client_id=232221935946-0bo434m3mmb2gra3upag7v9a4o5lpsvj.apps.googleusercontent.com&client_secret=R-kH4qPIPd7su2ayLEn1Dkh5&refresh_token=${refresh_token}&grant_type=refresh_token`,
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
+  })
+  .then((response) => response)
+  .catch((error) => {
+    throw new CustomErrors(error.response.data.message);
+  });
+}
 
 export const getGoogleCalendars = async (google_token) => {
   return axios({

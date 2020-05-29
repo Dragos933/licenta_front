@@ -16,6 +16,20 @@ export const createEvent = async (data) => {
     .catch((error) => error);
 };
 
+export const updateEvent = async (event_id, data) => {
+  return axios({
+    method: 'PUT',
+    url: `${path}/events/${event_id}`,
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+      'Content-Type': 'application/json'
+    },
+    data
+  })
+    .then((response) => response)
+    .catch((error) => error);
+}
+
 export const createPlantingEvent = async (data) => {
   return axios({
     method: 'POST',

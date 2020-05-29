@@ -4,6 +4,11 @@
   background: #fff;
   position: relative;
 
+  .connection-toast {
+    position: absolute;
+    top: 10%;
+  }
+
   .panel-container {
     display: flex;
     justify-content: space-around;

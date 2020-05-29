@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const weather =
-  'http://api.weatherapi.com/v1/forecast.json?key=7148a1b3ac2d4f6aab9180004200405&q=46.7712,23.6236&days=5';
+  `http://api.weatherapi.com/v1/forecast.json?key=7148a1b3ac2d4f6aab9180004200405&q=46.7712,23.6236&days=5`;
 
 export const getWeatherDataAPI = () => {
   return axios({
@@ -61,7 +61,7 @@ export const getUserData = (userId) => {
 export const getUserInvitations = (userId) => {
   return axios({
     method: 'GET',
-    url: `http://localhost:1337/invitations?user.id=${userId}`,
+    url: `http://localhost:1337/invitations?user.id=${userId}&status=Pending`,
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`
     }
@@ -117,7 +117,7 @@ export const getCalendarData = (userId, month) => {
 export const getUserConnections = (username) => {
   return axios({
     method: 'GET',
-    url: `http://localhost:1337/connections?username=${username}`,
+    url: `http://localhost:1337/connections?username=${username}&status=Pending`,
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`
     }
@@ -127,3 +127,18 @@ export const getUserConnections = (username) => {
       throw new Error(error);
     });
 };
+
+export const acceptConnection = (data) => {
+  return axios({
+    method: 'POST',
+    url: `http://localhost:1337/connections/connect`,
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    },
+    data
+  })
+    .then((response) => response)
+    .catch((error) => {
+      throw new Error(error);
+    });
+}

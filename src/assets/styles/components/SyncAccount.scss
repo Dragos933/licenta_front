@@ -45,6 +45,16 @@
     align-items: center;
     flex-direction: column;
 
+    .loader {
+      position: absolute;
+      top: 56.5%;
+      right: 20%;
+    }
+
+    .loader {
+      cursor: pointer;
+    }
+
     p {
       color: #777;
     }

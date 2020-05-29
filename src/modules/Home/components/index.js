@@ -13,6 +13,7 @@ import {
   getUserConnections
 } from '../../../api/home';
 import EventsModal from '../../../components/eventsModal';
+import ResponseToast from '../../../components/responseToast';
 
 const formatData = (data, title) => {
   return data.map((item) => {
@@ -69,6 +70,7 @@ const Home = (props) => {
   const [displayDate, setDisplayDate] = useState(moment(new Date()));
   const [isOpen, setOpen] = useState(false);
   const [selectedEvents, setSelectedEvents] = useState([]);
+  const [hasDecided, setHasDecided] = useState(false);
 
   useEffect(() => {
     const getAllData = async () => {
@@ -130,11 +132,36 @@ const Home = (props) => {
     setOpen(false);
   };
 
+  const onDecideConnection = ({ data: connectionData }) => {
+    setData(
+      data.filter(item => {
+        if (item.title === 'Connection') {
+          if (item.user_id !== connectionData.user.id) {
+            return item;
+          }
+        } else {
+          return item;
+        }
+      })
+    );
+    setHasDecided(true);
+  }
+
   return (
     <div className='home-container'>
+       {errors.length > 0 || hasDecided ? (
+        <ResponseToast
+          type={hasDecided ? 'success' : 'error'}
+          message={!hasDecided ? errors[0] : 'Connection updated successfully.'}
+          className='connection-toast'
+        />
+       ) : null}
       <div className='panel-container'>
         <LeftPanel />
-        <MiddlePanel data={data} />
+        <MiddlePanel
+          data={data}
+          onDecideConnection={onDecideConnection}  
+        />
         <RightPanel
           days={days}
           weekDays={weekDays}

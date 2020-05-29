@@ -10,13 +10,14 @@ const CardItem = (props) => {
   const {
     onClickCancel,
     username = 'No username',
-    email = 'No email',
     title = 'No title',
     date = 'No date',
     status = 'No status',
     event_id,
-    location = 'No location mentioned'
+    location = 'No location mentioned',
+    onClickConnect
   } = props;
+
   return (
     <div className='card-item'>
       <i
@@ -75,18 +76,23 @@ const CardItem = (props) => {
               </p>
             </div>
             <div className='card-detail'>
-              <p className='detail-label'>
-                <em>Email:</em>
+              <p onClick={() => onClickConnect(username, 'Accept')} className='detail-label action'>
+                Accept
               </p>
-              <p className='detail-info'>{email}</p>
+              <p onClick={() => onClickConnect(username, 'Deny')} className='detail-info action deny'>Deny</p>
             </div>
           </>
         )}
       </div>
-      <p className='see-details'>
-        <Link to={`/event-page/${event_id}`}><span>See details</span></Link>
-        <i className='fas fa-arrow-right' />
-      </p>
+      {
+        title !== 'Connection'
+        ? <p className='see-details'>
+            <Link to={`/event-page/${event_id}`}><span>See details</span></Link>
+            <i className='fas fa-arrow-right' />
+          </p>
+        : null
+      }
+      
     </div>
   );
 };
