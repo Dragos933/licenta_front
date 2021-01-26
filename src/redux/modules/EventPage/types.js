@@ -1,1 +1,0 @@
-const _module = 'EVENT PAGE';

@@ -1,0 +1,76 @@
+.instant-scroll-container {
+  position: sticky;
+  top: 90%;
+  left: 95%;
+  z-index: 1000000;
+  display: inline-block;
+  
+  .navigation-item {
+    position: absolute;
+    opacity: 0;
+    background-color: #f76c6c;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+    border: 2px solid #F76C6C;
+
+    p {
+      color: #fff;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .informer {
+      position: absolute;
+      left: -740%;
+      top: 25%;
+      color: #f76c6c;
+    }
+  }
+
+  .navigation-item:hover {
+    cursor: pointer;
+    transition: .3s;
+    background-color: #fff;
+    border: 2px solid #f76c6c;
+
+    p {
+      color: #f76c6c;
+    }
+
+    .informer {
+      font-size: 15px;
+      // color: #2e9cca;
+    }
+  }
+
+  i {
+    font-size: 42px;
+    color: #f76c6c;
+    transition: .3s;
+    border-radius: 50%;
+    animation: rotating-compass 10s infinite ease;
+  }
+
+  @keyframes rotating-compass {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    50% {
+      transform: rotate(360deg);
+    }
+
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  i:hover {
+    cursor: pointer;
+  }
+}

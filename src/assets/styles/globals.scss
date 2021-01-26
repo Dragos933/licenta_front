@@ -1,127 +1,119 @@
 body {
   margin: 0;
-  font-family: 'Varela Round', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  // font-family: 'Roboto', sans-serif;
+  font-display: swap;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
   box-sizing: border-box;
+  color: #fff;
+  font-size: 16px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+::-webkit-scrollbar {
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
 }
 
-h1,
-p,
-ul,
-form {
-  margin: 0;
-  padding: 0;
-}
-
-.component-title {
-  font-size: 42px;
-  color: #b3b3b3;
-}
-
-.basic-btn {
-  border: none;
-  outline: none;
-}
-
-.basic-btn:hover {
-  cursor: pointer;
+::-webkit-scrollbar-thumb {
+  background: transparent;
 }
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  -webkit-text-fill-color: #555 !important;
-  transition: background-color 5000s ease-in-out 0s;
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  transition: 9999s;
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0px 1000px #25274d inset;
+  background-color: transparent;
 }
 
-::-webkit-scrollbar {
-  display: none;
-  width: 0px;
-  background: transparent; /* make scrollbar transparent */
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+form,
+ul {
+  margin: 0;
+  padding: 0;
 }
 
-.resToast-container {
-  position: absolute;
+video {
+  outline: none;
+}
+
+button {
+  outline: none;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.page-container {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 5px 10px;
-  border-radius: 10px;
-  animation: toast-appear 5s forwards ease;
-
-  @keyframes toast-appear {
-    0% {
-      transform: translateX(-20px);
-      opacity: 0;
-    }
-
-    10% {
-      transform: translateX(0px);
-      opacity: 1;
-    }
-
-    90% {
-      transform: translateX(0px);
-      opacity: 1;
-    }
-
-    100% {
-      opacity: 0;
-      transform: translateX(-20px);
-    }
-  }
-
-  i {
-    margin-right: 20px;
-    border-right: 1px solid #fff;
-    padding-right: 10px;
-    color: #fff;
-    font-weight: bold;
-  }
-
-  .toast-message {
-    color: #fff;
-  }
+  flex-direction: column;
 }
 
-.toast-error {
-  background-color: #f65f67;
+.is-btn:hover {
+  transition: 0.2s;
+  background-color: #450908;
 }
 
-.toast-success {
-  background-color: #689f65;
+input::placeholder,
+textarea::placeholder {
+  color: #fff;
+  opacity: 1; /* Firefox */
 }
 
-.connection-toast {
-  top: -11%;
-  left: 4%;
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #fff;
 }
 
-.aboutUser-toast {
-  top: 10%;
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+  color: #fff;
 }
 
-.create-event-toast {
-  top: 5%;
+.btn {
+  font-size: 24px;
+  background-color: #f76c6c;
+  text-decoration: none;
+  outline: none;
+  padding: 5px 20px;
+  transition: 0.3s;
+  color: #fff;
+  border-radius: 20px;
 }
 
-.sync-google-toast {
-  top: -14%;
+.btn:hover {
+  transition: 0.3s;
+  cursor: pointer;
+  background-color: #2e9cca;
 }
 
-.selected-calendar {
-  background-color: #bed1c5;
-  color: #fff !important;
-  padding: 3px 40px;
-  border-radius: 10px;
-  height: 20px;
+input,
+textarea {
+  border-radius: 0;
+}
+
+input[type='search'],
+textarea {
+  -webkit-appearance: none;
 }
